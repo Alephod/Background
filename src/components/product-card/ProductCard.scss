@@ -1,0 +1,39 @@
+@import '/src/styles/vars.scss';
+.product-card {
+	// width: 250px;
+	cursor: pointer;
+
+	&__img {
+		display: flex;
+		justify-content: center;
+		position: relative;
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+	&__title {
+		position: absolute;
+		bottom: 15px;
+		font-size: 16px;
+		@media screen and (max-width: 830px) {
+			font-size: 22px;
+		}
+		@media screen and (max-width: 570px) and (min-width: $md4) {
+			font-size: 19px;
+		}
+		@media screen and (max-width: $md4) {
+			font-size: 26px;
+		}
+	}
+	&__price {
+		margin-top: 10px;
+		font-size: 16px;
+		@media screen and (max-width: 830px) {
+			font-size: 22px;
+		}
+		@media screen and (max-width: $md4) {
+			font-size: 26px;
+		}
+	}
+}

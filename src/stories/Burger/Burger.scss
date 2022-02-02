@@ -1,0 +1,12 @@
+.burger-div {
+    background: #1d1d1d;
+    height: 83px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .burger {
+        display: flex;
+        height: 100%;
+        padding: 0;
+    }
+}

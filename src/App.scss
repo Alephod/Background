@@ -1,0 +1,184 @@
+@import "/src/styles/vars.scss";
+@import "/src/styles/fonts.scss";
+
+// Обнуление
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover {
+	text-decoration: none;
+}
+ul,
+li,
+ol {
+	list-style-type: none;
+}
+img {
+	vertical-align: top;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	-webkit-text-fill-color: #ffffff;
+	background-color: transparent;
+	// ? Есть ли решение лучше?
+	transition: background-color 9999999999999999s ease-in-out 0s;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+
+// Стили по умолчанию
+#root {
+	min-height: 100vh;
+}
+button,
+input[type="submit"],
+input[type="button"] {
+	cursor: pointer;
+}
+body {
+	overflow-x: hidden;
+	background: $bg;
+	font-family: $SfontFamily, "sans-serif";
+	font-size: $SfontSize;
+	color: $Scolor;
+	min-height: 100vh;
+}
+.container {
+	margin: 0 auto;
+	padding: 0 15px;
+	max-width: $container;
+}
+
+
+
+// Стили компонентов
+.info {
+	margin-top: 140px;
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 40px;
+
+	@media screen and (max-width: $md2) {
+		gap: 30px;
+	}
+	@media screen and (max-width: 870px) {
+		flex-direction: column;
+		margin-top: 90px;
+		gap: 40px;
+	}
+	&__img {
+		width: 100%;
+		height: fit-content;
+		align-self: center;
+		max-width: 500px;
+		@media screen and (max-width: 1060px) {
+			max-width: 450px;
+		}
+		@media screen and (max-width: $md2) {
+			max-width: 400px;
+		}
+		@media screen and (max-width: 870px) {
+			max-width: 500px;
+			align-self: center;
+		}
+	}
+	&__desc {
+		flex-grow: 1;
+	}
+	&__title {
+		margin-bottom: 50px;
+
+		@media screen and (max-width: 870px) {
+			text-align: center;
+		}
+	}
+	&__text {
+		font-family: "Coworking";
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 35px;
+
+		@media screen and (max-width: $md4) {
+			font-size: 22px;
+			line-height: 33px;
+		}
+		@media screen and (max-width: $md2) {
+			font-size: 22px;
+			line-height: 33px;
+		}
+
+		p:first-child {
+			margin-bottom: 48px;
+		}
+	}
+}
+
+.product {
+	padding-top: 200px;
+	h1 {
+		font-size: 46px;
+	}
+}

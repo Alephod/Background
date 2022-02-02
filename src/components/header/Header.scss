@@ -1,0 +1,33 @@
+@import "/src/styles/vars.scss";
+.header {
+	z-index: 9999;
+	position: fixed;
+	background: $headerBg;
+	width: 100%;
+	box-shadow: 0px 8px 11px 0px rgba(0, 0, 0, 0.25);
+
+	&__wrapper {
+		width: 100%;
+	}
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		align-items: center;
+		justify-content: space-between;
+		height: 100%;
+		color: #fff;
+
+		@media screen and (max-width: 570px) {
+			grid-template-columns: 70px 1fr;
+		}
+	}
+
+	&__main {
+		display: flex;
+		justify-self: end;
+		gap: 40px;
+		@media screen and (max-width: 570px) {
+			display: none;
+		}
+	}
+}

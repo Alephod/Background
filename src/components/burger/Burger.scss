@@ -1,0 +1,32 @@
+@import "../../styles/vars.scss";
+.burger {
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-self: start;
+    gap: 5px;
+    display: none;
+    cursor: pointer;
+
+    &_active {
+        span:first-child {
+            transform: translateY(4px) rotateZ(-45deg);
+        }
+        span:nth-child(2) {
+            display: none;
+        }
+        span:last-child {
+            transform: translateY(-4px) rotateZ(45deg);
+        }
+    }
+
+    @media screen and (max-width: $md3) {
+        display: flex;
+    }
+    span {
+        width: 30px;
+        height: 2px;
+        background: #fff;
+    }
+}

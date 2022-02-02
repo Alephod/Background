@@ -1,0 +1,38 @@
+@import "/src/styles/vars.scss";
+
+.search-form {
+	font-family: "Mulish";
+
+	@media screen and (max-width: $md3) {
+		&:not(.menu__search-form) {
+			display: none;
+		}
+	}
+
+	// .search-form__input
+	&__input {
+		outline: none;
+		border-bottom: 1px solid #8c8c8c;
+		padding: 5px 5px 5px 0;
+		color: inherit;
+		background: transparent;
+		transition: 0.3s;
+
+		&:focus {
+			border-bottom: 1px solid #fff;
+		}
+
+		&::placeholder {
+			font-size: 14px;
+			color: $search-formPlaceholderColor;
+		}
+	}
+
+
+	// .search-form__btn
+	&__btn {
+		font-size: 16px;
+		color: $Scolor;
+		background: transparent;
+	}
+}
