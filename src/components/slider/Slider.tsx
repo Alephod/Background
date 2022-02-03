@@ -18,10 +18,13 @@ interface Props {
 }
 
 export function Slider({ sliderInterval, sliderAnimTime }: Props) {
+    let isPitchedLocal: boolean;
     let imagesBuffer: Array<any> = [sliderPagesResponse[sliderPagesResponse.length - 1], ...sliderPagesResponse];
 
     const slider: MutableRefObject<any> = useRef();
     const sliderImages: MutableRefObject<any> = useRef();
+    const sliderTouchContainer: MutableRefObject<any> = useRef();
+
     const nextBtn: MutableRefObject<any> = useRef(null);
 
     const [curId, setCurId] = useState(0);
@@ -36,31 +39,59 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
     }, [images]);
 
     useEffect(() => {
-        let isPitchedLocal: boolean;
-        slider.current.addEventListener('mousemove', (e: any) => {
-            e.stopPropagation();
-            let bounds: any = slider.current.getBoundingClientRect();
-            let x: number = e.clientX - bounds.left;
-            isPitchedLocal && setXLastPos(x);
+        // Настройка событий, в зависимости от устройства
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+            sliderTouchContainer.current.addEventListener('touchmove', (e: any) => {
+                e.stopPropagation();
+                let bounds: any = slider.current.getBoundingClientRect();
+                let x: number = e.targetTouches[0].clientX - bounds.left;
+                isPitchedLocal && setXLastPos(x);
 
-            slider.current.onmousedown = (e: any) => {
-                let bounds: any = e.target.getBoundingClientRect();
+                sliderTouchContainer.current.ontouchstart = (e: any) => {
+                    let bounds: any = e.target.getBoundingClientRect();
+                    let x: number = e.targetTouches[0].clientX - bounds.left;
+                    setXPitchedPos(x);
+                    isPitchedLocal = true;
+                    setIsPitched(true);
+                };
+                sliderTouchContainer.current.ontouchend = () => {
+                    isPitchedLocal = false;
+                    setIsPitched(false);
+                };
+                sliderTouchContainer.current.ontouchcancel = () => {
+                    isPitchedLocal = false;
+                    setIsPitched(false);
+                };
+            });
+        } else {
+            sliderTouchContainer.current.addEventListener('mousemove', (e: any) => {
+                e.stopPropagation();
+                let bounds: any = slider.current.getBoundingClientRect();
                 let x: number = e.clientX - bounds.left;
-                setXPitchedPos(x);
-                isPitchedLocal = true;
-                setIsPitched(true);
-            };
+                isPitchedLocal && setXLastPos(x);
 
-            slider.current.onmouseup = (e: any) => {
-                isPitchedLocal = false;
-                setIsPitched(false);
-            };
-        });
+                sliderTouchContainer.current.onmousedown = (e: any) => {
+                    let bounds: any = e.target.getBoundingClientRect();
+                    let x: number = e.clientX - bounds.left;
+                    setXPitchedPos(x);
+                    isPitchedLocal = true;
+                    setIsPitched(true);
+                };
+                sliderTouchContainer.current.onmouseup = () => {
+                    isPitchedLocal = false;
+                    setIsPitched(false);
+                };
+                sliderTouchContainer.current.onmouseleave = () => {
+                    isPitchedLocal = false;
+                    setIsPitched(false);
+                };
+            });
+        }
     }, []);
 
     useEffect(() => {
         if (xLastPos != 0 && !isAnimate)
-            sliderImages.current.style.transform = `translateX(calc(0% + ${-(xPitchedPos - xLastPos)}px))`;
+            sliderImages.current.style.transform = `translateX(calc(0% + ${-(xPitchedPos - xLastPos + 70)}px))`;
     }, [xPitchedPos, xLastPos, isAnimate]);
 
     useEffect(() => {
@@ -146,8 +177,6 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
     window.onload = () => {
         setInterval(() => {
             NextImg();
-            console.log(4989448948);
-
         }, sliderInterval);
     };
 
@@ -158,6 +187,9 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
                     <button className="slider__prev" onClick={() => !isAnimate && PrevImg()}>
                         <img src="img/slider/controls/prev.svg" alt="" />
                     </button>
+                    <div ref={sliderTouchContainer} className="slider__touch-container">
+
+                    </div>
                     <div className="slider__pages">
                         {sliderPagesResponse.map((item, index) =>
                             <div
