@@ -1,23 +1,23 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Header } from '../../components/header/Header';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import './../../App.scss';
 
 
 export default {
-    title: 'Header/',
+    title: 'Header/Header',
     component: Header,
 } as ComponentMeta<typeof Header>;
 
 const Template: ComponentStory<typeof Header> = (args) => (
-    <div className='burger-div'>
-        <Header {...args} />
-    </div>
+    <BrowserRouter>
+        <Switch>
+            <Header {...args} />
+        </Switch>
+    </BrowserRouter>
 );
 
-export const Close: any = Template.bind({});
-Close.args = {
-};
-
-export const Open: any = Template.bind({});
-Open.args = {
+export const Logged: any = Template.bind({});
+Logged.args = {
 };

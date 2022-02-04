@@ -1,31 +1,35 @@
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import './Slider.scss';
 
-const sliderPagesResponse: Array<any> = [
-    { id: 0, href: './img/slider/1.jpg' },
-    { id: 1, href: './img/slider/2.png' },
-    { id: 2, href: './img/slider/3.jpg' },
-    { id: 3, href: './img/slider/3.jpg' },
-    { id: 4, href: './img/slider/3.jpg' },
-    { id: 5, href: './img/slider/3.jpg' },
-    { id: 6, href: './img/slider/3.jpg' },
-    { id: 7, href: './img/slider/4.jpg' }
-];
-
-interface Props {
-    sliderInterval: number;
-    sliderAnimTime: number;
+interface SliderImage {
+    id: number;
+    href: string;
 }
 
-export function Slider({ sliderInterval, sliderAnimTime }: Props) {
-    let isPitchedLocal: boolean;
-    let imagesBuffer: Array<any> = [sliderPagesResponse[sliderPagesResponse.length - 1], ...sliderPagesResponse];
+interface Props {
+    className?: string;
+    /**
+     * Интервал между самостоятельным перелистыванием страницы
+     */
+    sliderInterval: number;
+    /**
+     * Время за которое перелистнется страницы
+     */
+    sliderAnimTime: number;
+    /**
+     * Массив изображений
+     */
+    images: Array<SliderImage>;
+}
 
+export function Slider({ sliderInterval = 10000, sliderAnimTime = 800, ...props }: Props) {
+    let isPitchedLocal: boolean;
+    let imagesBuffer: Array<any> = props.images ? [props.images[props.images.length - 1], ...props.images] : [];
+
+    const canNext: MutableRefObject<any> = useRef(true);
     const slider: MutableRefObject<any> = useRef();
     const sliderImages: MutableRefObject<any> = useRef();
     const sliderTouchContainer: MutableRefObject<any> = useRef();
-
-    const nextBtn: MutableRefObject<any> = useRef(null);
 
     const [curId, setCurId] = useState(0);
     const [isAnimate, setIsAnimate] = useState(false);
@@ -50,17 +54,19 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
                 sliderTouchContainer.current.ontouchstart = (e: any) => {
                     let bounds: any = e.target.getBoundingClientRect();
                     let x: number = e.targetTouches[0].clientX - bounds.left;
-                    setXPitchedPos(x);
+                    setXPitchedPos(x + 70);
                     isPitchedLocal = true;
                     setIsPitched(true);
                 };
                 sliderTouchContainer.current.ontouchend = () => {
                     isPitchedLocal = false;
                     setIsPitched(false);
+                    canNext.current = true;
                 };
                 sliderTouchContainer.current.ontouchcancel = () => {
                     isPitchedLocal = false;
                     setIsPitched(false);
+                    canNext.current = true;
                 };
             });
         } else {
@@ -73,16 +79,18 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
                 sliderTouchContainer.current.onmousedown = (e: any) => {
                     let bounds: any = e.target.getBoundingClientRect();
                     let x: number = e.clientX - bounds.left;
-                    setXPitchedPos(x);
+                    setXPitchedPos(x + 70);
                     isPitchedLocal = true;
                     setIsPitched(true);
                 };
                 sliderTouchContainer.current.onmouseup = () => {
                     isPitchedLocal = false;
+                    canNext.current = true;
                     setIsPitched(false);
                 };
                 sliderTouchContainer.current.onmouseleave = () => {
                     isPitchedLocal = false;
+                    canNext.current = true;
                     setIsPitched(false);
                 };
             });
@@ -90,8 +98,10 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
     }, []);
 
     useEffect(() => {
-        if (xLastPos != 0 && !isAnimate)
-            sliderImages.current.style.transform = `translateX(calc(0% + ${-(xPitchedPos - xLastPos + 70)}px))`;
+        if (xLastPos != 0 && !isAnimate) {
+            sliderImages.current.style.transform = `translateX(calc(0% + ${-(xPitchedPos - xLastPos)}px))`;
+            canNext.current = false;
+        }
     }, [xPitchedPos, xLastPos, isAnimate]);
 
     useEffect(() => {
@@ -117,6 +127,7 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
 
     function NextImg() {
         setIsAnimate(true);
+        canNext.current = false;
         sliderImages.current.style.transform = 'translateX(-100%)';
         setCurId(prev => {
             if (prev >= images.length - 2) return 0;
@@ -125,12 +136,13 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
         setTimeout(() => {
             setImages(prev => [...prev.slice(1), prev[1]]);
             setIsAnimate(false);
+            canNext.current = true;
         }, sliderAnimTime);
         setIsPitched(false);
-
     }
     function PrevImg() {
         setIsAnimate(true);
+        canNext.current = false;
         sliderImages.current.style.transform = 'translateX(100%)';
         setCurId(prev => {
             if (prev == 0) return images.length - 2;
@@ -139,6 +151,7 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
         setTimeout(() => {
             setImages(prev => [prev[prev.length - 2], ...prev.slice(0, prev.length - 1)]);
             setIsAnimate(false);
+            canNext.current = true;
         }, sliderAnimTime);
         setIsPitched(false);
     }
@@ -163,6 +176,7 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
         }
         if (curId != pageId) {
             setIsAnimate(true);
+            canNext.current = false;
             sliderImages.current.style.transform = `translateX(-${translate}%)`;
             setCurId(pageId);
             setTimeout(() => {
@@ -171,17 +185,18 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
                     return [...arr.slice(pageId - 1), ...arr.slice(0, pageId - 1), pageId > 0 ? arr[pageId - 1] : arr[arr.length - 1]];
                 });
                 setIsAnimate(false);
+                canNext.current = true;
             }, sliderAnimTime);
         }
     }
     window.onload = () => {
         setInterval(() => {
-            NextImg();
+            canNext.current && NextImg();
         }, sliderInterval);
     };
 
     return (
-        <div ref={slider} className="slider">
+        <div ref={slider} className={`slider ${props.className}`}>
             <div className="slider__body">
                 <div className="slider__controls">
                     <button className="slider__prev" onClick={() => !isAnimate && PrevImg()}>
@@ -191,7 +206,7 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
 
                     </div>
                     <div className="slider__pages">
-                        {sliderPagesResponse.map((item, index) =>
+                        {props.images.map((item, index) =>
                             <div
                                 data-page={index}
                                 className={`slider__pages-item ${item.id === curId ? 'slider__pages-item_active' : ''}`}
@@ -202,7 +217,7 @@ export function Slider({ sliderInterval, sliderAnimTime }: Props) {
                             </div>
                         )}
                     </div>
-                    <button ref={nextBtn} className="slider__next" onClick={() => !isAnimate && NextImg()}>
+                    <button className="slider__next" onClick={() => !isAnimate && NextImg()}>
                         <img src="img/slider/controls/next.svg" alt="" />
                     </button>
                 </div>

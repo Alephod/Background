@@ -5,6 +5,18 @@ import { Slider } from './components/slider/Slider';
 import { Title } from './components/title/Title';
 import { Products } from './forms/products/Products';
 
+
+const sliderPagesResponse: Array<any> = [
+    { id: 0, href: './img/slider/1.jpg' },
+    { id: 1, href: './img/slider/2.png' },
+    { id: 2, href: './img/slider/3.jpg' },
+    { id: 3, href: './img/slider/3.jpg' },
+    { id: 4, href: './img/slider/3.jpg' },
+    { id: 5, href: './img/slider/3.jpg' },
+    { id: 6, href: './img/slider/3.jpg' },
+    { id: 7, href: './img/slider/4.jpg' }
+];
+
 export default function App() {
     return (
         <div className="body" style={
@@ -17,7 +29,7 @@ export default function App() {
             <Header />
             <Switch>
                 <Route exact path="/">
-                    <Slider sliderAnimTime={800} sliderInterval={10000}/>
+                    <Slider className='slider__main-page' sliderAnimTime={800} sliderInterval={10000} images={sliderPagesResponse}/>
                     <div className="info container">
                         <img className="info__img" src="./img/info/info-img.png" alt="" />
                         <div className="info__desc">
@@ -36,7 +48,7 @@ export default function App() {
                     <Products />
                 </Route>
                 <Route path="/man">
-                    <Slider sliderAnimTime={800} sliderInterval={10000}/>
+                    <Slider className='slider__main-page' sliderAnimTime={800} sliderInterval={10000} images={sliderPagesResponse}/>
 
                 </Route>
                 <Route path="/product">
