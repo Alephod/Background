@@ -112,77 +112,24 @@ body {
 	max-width: $container;
 }
 
-
-
-// Стили компонентов
-.info {
-	margin-top: 140px;
-	display: flex;
-	flex-direction: row-reverse;
-	gap: 40px;
-
-	@media screen and (max-width: $md2) {
-		gap: 30px;
-	}
-	@media screen and (max-width: 870px) {
-		flex-direction: column;
-		margin-top: 90px;
-		gap: 40px;
-	}
-	&__img {
-		width: 100%;
-		height: fit-content;
-		align-self: center;
-		max-width: 500px;
-		@media screen and (max-width: 1060px) {
-			max-width: 450px;
-		}
-		@media screen and (max-width: $md2) {
-			max-width: 400px;
-		}
-		@media screen and (max-width: 870px) {
-			max-width: 500px;
-			align-self: center;
-		}
-	}
-	&__desc {
-		flex-grow: 1;
-	}
-	&__title {
-		margin-bottom: 50px;
-
-		@media screen and (max-width: 870px) {
-			text-align: center;
-		}
-	}
-	&__text {
-		font-family: "Coworking";
-		font-weight: 400;
-		font-size: 24px;
-		line-height: 35px;
-
-		@media screen and (max-width: $md4) {
-			font-size: 22px;
-			line-height: 33px;
-		}
-		@media screen and (max-width: $md2) {
-			font-size: 22px;
-			line-height: 33px;
-		}
-
-		p:first-child {
-			margin-bottom: 48px;
-		}
-	}
+::-webkit-scrollbar {
+	width: 7px;
+	height: 7px;
+}
+::-webkit-scrollbar-thumb {
+	background: #c4c4c4;
+	border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+	background: #1d1d1d;
+	border-radius: 5px;
 }
 
+// Стили компонентов
+// ! Страница с продуктом
 .product {
 	padding-top: 200px;
 	h1 {
 		font-size: 46px;
 	}
-}
-
-.slider__main-page {
-	padding-top: 138px;
 }

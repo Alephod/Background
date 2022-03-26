@@ -5,9 +5,11 @@
     display: flex;
     user-select: none;
     cursor: grab;
-
-    @media screen and (max-width: $md3) {
-        padding-top: 83px;
+    &_pt {
+        padding-top: 138px;
+        @media screen and (max-width: $md3) {
+            padding-top: 83px;
+        }
     }
     &__controls {
         position: absolute;

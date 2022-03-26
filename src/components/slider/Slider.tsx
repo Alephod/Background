@@ -191,7 +191,7 @@ export function Slider({ sliderInterval = 10000, sliderAnimTime = 800, ...props 
     }
     window.onload = () => {
         setInterval(() => {
-            canNext.current && NextImg();
+            sliderImages.current && canNext.current && NextImg();
         }, sliderInterval);
     };
 

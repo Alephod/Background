@@ -1,0 +1,39 @@
+@import "/src/styles/vars.scss";
+.products {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 60px 20px;
+
+        @media screen and (max-width: 830px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 60px 40px;
+        }
+        @media screen and (max-width: $md4) {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__btn {
+        background: #0A814F;
+        margin-top: 30px;
+        display: flex;
+        padding: 0 15px;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        font-size: 16px;
+        font-weight: 900;
+        border-radius: 6px;
+    }
+}

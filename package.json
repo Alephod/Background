@@ -1,6 +1,8 @@
 {
   "name": "background_online-store",
   "version": "0.1.0",
+  "description": "Client for Background.com ",
+  "author": "Alephod",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
