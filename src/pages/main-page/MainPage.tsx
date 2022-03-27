@@ -2,7 +2,7 @@ import './MainPage.scss';
 import { Title } from './../../components/title/Title';
 import { PromoProducts } from '../../forms/promo-products/PromoProducts';
 import { Slider } from '../../components/slider/Slider';
-import { Feedback } from '../../components/feedback/Feedback';
+import { Feedback } from '../../forms/feedback/Feedback';
 
 const sliderPagesResponse: Array<any> = [
     { id: 0, href: './img/slider/1.jpg' },

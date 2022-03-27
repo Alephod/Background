@@ -1,7 +1,7 @@
 import './Feedback.scss';
 import { useEffect, useRef, useState } from 'react';
-import { Rating } from '../rating/Rating';
-import { FeedbackReview, IFeedbackReview } from '../feedback-review/FeedbackReview';
+import { Rating } from '../../components/rating/Rating';
+import { FeedbackReview, IFeedbackReview } from '../../components/feedback-review/FeedbackReview';
 import { Link } from 'react-router-dom';
 
 const feedbackResponse: any = [
@@ -91,12 +91,13 @@ const feedbackResponse: any = [
 export function Feedback() {
     const feedbackHeader: any = useRef();
     const feedbackBody: any = useRef();
+    const feedbackHeaderML: any = useRef();
 
     const [scrollCount, setScrollCount] = useState(0);
 
     const getMargin = () => {
-        let marginLeft: string = window.getComputedStyle(feedbackHeader.current).marginLeft;
-        feedbackBody.current.style.marginLeft = marginLeft;
+        feedbackHeaderML.current = parseFloat(window.getComputedStyle(feedbackHeader.current).marginLeft.slice(0, -2));
+        feedbackBody.current.style.marginLeft = feedbackHeaderML.current + 'px';
         if (window.screen.width < 1900)
             feedbackBody.current.style.paddingRight =
                 parseFloat(getComputedStyle(feedbackHeader.current).marginRight.slice(0, -2)) + 15 + 'px';
@@ -121,7 +122,7 @@ export function Feedback() {
                 <Link className='feedback__btn' to="/review/background">Все отзывы</Link>
             </div>
             <div ref={feedbackBody} className="feedback__body">
-                {feedbackResponse.map((item: IFeedbackReview, index: number) => <FeedbackReview index={index} scrollCount={scrollCount} review={item} />)}
+                {feedbackResponse.map((item: IFeedbackReview, index: number) => <FeedbackReview feedbackHeaderML={feedbackHeaderML.current} index={index} scrollCount={scrollCount} review={item} />)}
             </div>
         </div>
     );

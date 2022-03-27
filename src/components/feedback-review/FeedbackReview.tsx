@@ -8,6 +8,7 @@ interface Props {
     review: IFeedbackReview;
     scrollCount?: number;
     index?: any;
+    feedbackHeaderML?: number;
 }
 
 export interface IFeedbackReview {
@@ -20,18 +21,18 @@ export interface IFeedbackReview {
     text: string;
 }
 
-export function FeedbackReview({ review, ...props }: Props) {
+export function FeedbackReview({ review, feedbackHeaderML, ...props }: Props) {
     const feedbackReview: any = useRef();
     const classBeyond: any = useRef();
 
     const giveBeyondClassname = () => {
         let xPos: number = 0;
-        if (feedbackReview.current.getBoundingClientRect().x)
-            xPos = feedbackReview.current.getBoundingClientRect().x;
-        if (xPos > 1600 && xPos < 1800) {
-            classBeyond.current = 'feedback-review__out-1600';
-        } else if (xPos > 1800) {
-            classBeyond.current = 'feedback-review__out-1800';
+        if (feedbackReview.current.getBoundingClientRect().x && feedbackHeaderML)
+            xPos = feedbackReview.current.getBoundingClientRect().x - feedbackHeaderML;
+        if (xPos > 1100 && xPos < 1400) {
+            classBeyond.current = 'feedback-review__out-1100';
+        } else if (xPos > 1400) {
+            classBeyond.current = 'feedback-review__out-1400';
         } else {
             classBeyond.current = '';
         }
