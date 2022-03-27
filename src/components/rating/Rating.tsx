@@ -8,11 +8,12 @@ import { starArray } from '../../tools/starArray';
 interface Props {
     reviewCount: number;
     starCount: number[];
+    className?: string;
 }
 
 const words: string[] = ['Отзыв', 'Отзыва', 'Отзывов'];
 
-export function Rating({ reviewCount, starCount }: Props) {
+export function Rating({ reviewCount, starCount, className }: Props) {
     const [word, setWord] = useState('');
     const [rating, setRating] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ export function Rating({ reviewCount, starCount }: Props) {
     };
 
     return (
-        <div className='rating'>
+        <div className={`rating ${className ? className : ''}`}>
             <div className='rating-avg'>
                 {starArray.map((i: any) => <div className='rating-avg__item' key={i}>
                     <img src={rating >= i

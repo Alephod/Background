@@ -1,0 +1,83 @@
+@import "/src/styles/vars.scss";
+.footer {
+    background: $footerBg;
+    margin-top: 90px;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 15px 35px;
+        @media screen and (max-width: 1080px) {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.footer-item {
+    @media screen and (max-width: 1080px) {
+        width: 50%;
+        &:nth-child(1), &:nth-child(2) {
+            margin-bottom: 30px;
+        }
+    }
+    @media screen and (max-width: 720px) {
+        width: 100%;
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+
+    &__icon {
+        width: 20px;
+        display: flex;
+        justify-content: start;
+    }
+
+    &__link {
+        display: flex;
+        &:not(:last-child) {
+            margin-bottom: 11px;
+        }
+    }
+
+    &__email {
+        display: flex;
+        input[type="text"] {
+            background: transparent;
+            border: 1px solid $btnBg;
+            height: 40px;
+            width: 280px;
+            padding: 5px 10px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 4px 0px 0px 4px;
+            outline: none;
+
+            @media screen and (max-width: 380px) {
+                flex-grow: 1;
+            }
+
+            &:placeholder {
+                color: #8c8c8c;
+            }
+        }
+        input[type="submit"] {
+            background: $btnBg;
+            height: 40px;
+            width: 60px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 0px 4px 4px 0px;
+            @media screen and (max-width: 380px) {
+                width: auto;
+                padding: 0 15px;
+            }
+        }
+    }
+}
