@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Rating } from '../../components/rating/Rating';
 import { FeedbackReview, IFeedbackReview } from '../../components/feedback-review/FeedbackReview';
 import { Link } from 'react-router-dom';
+import { EMPTY_FUNC } from '../../vars';
 
 const feedbackResponse: any = [
     {
@@ -96,14 +97,17 @@ export function Feedback() {
     const [scrollCount, setScrollCount] = useState(0);
 
     const getMargin = () => {
-        feedbackHeaderML.current = parseFloat(window.getComputedStyle(feedbackHeader.current).marginLeft.slice(0, -2));
-        feedbackBody.current.style.marginLeft = feedbackHeaderML.current + 'px';
-        if (window.screen.width < 1900)
-            feedbackBody.current.style.paddingRight =
-                parseFloat(getComputedStyle(feedbackHeader.current).marginRight.slice(0, -2)) + 15 + 'px';
-        else
-            feedbackBody.current.style.paddingRight =
-                parseFloat(window.getComputedStyle(feedbackBody.current).width.slice(0, -2)) - parseFloat(window.getComputedStyle(feedbackHeader.current).width.slice(0, -2)) + 15 + 'px';
+        try {
+            feedbackHeaderML.current = parseFloat(window.getComputedStyle(feedbackHeader.current).marginLeft.slice(0, -2));
+            feedbackBody.current.style.marginLeft = feedbackHeaderML.current + 'px';
+            if (window.screen.width < 1900)
+                feedbackBody.current.style.paddingRight =
+                    parseFloat(getComputedStyle(feedbackHeader.current).marginRight.slice(0, -2)) + 15 + 'px';
+            else
+                feedbackBody.current.style.paddingRight =
+                    parseFloat(window.getComputedStyle(feedbackBody.current).width.slice(0, -2)) - parseFloat(window.getComputedStyle(feedbackHeader.current).width.slice(0, -2)) + 15 + 'px';
+        } catch (e) {EMPTY_FUNC();}
+
     };
 
     useEffect(() => {

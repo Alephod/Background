@@ -94,6 +94,15 @@ h6 {
 #root {
 	min-height: 100vh;
 }
+.body {
+	display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #00000014 url('./img/bg-1.png');
+	background-blend-mode: color;
+	background-size: 100%;
+	background-repeat-x: no-repeat;
+}
 button,
 input[type="submit"],
 input[type="button"] {
