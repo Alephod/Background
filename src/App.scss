@@ -1,0 +1,136 @@
+@import "/src/styles/vars.scss";
+@import "/src/styles/fonts.scss";
+
+// Обнуление
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	overflow-x: hidden;
+}
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover {
+	text-decoration: none;
+}
+ul,
+li,
+ol {
+	list-style-type: none;
+}
+img {
+	vertical-align: top;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	-webkit-text-fill-color: #ffffff;
+	background-color: transparent;
+	// ? Есть ли решение лучше?
+	transition: background-color 9999999999999999s ease-in-out 0s;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+
+// Стили по умолчанию
+#root {
+	min-height: 100vh;
+}
+button,
+input[type="submit"],
+input[type="button"] {
+	cursor: pointer;
+}
+body {
+	overflow-x: hidden;
+	background: $bg;
+	font-family: $SfontFamily, "sans-serif";
+	font-size: $SfontSize;
+	color: $Scolor;
+	min-height: 100vh;
+}
+.container {
+	margin: 0 auto;
+	padding: 0 15px;
+	max-width: $container;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+	height: 7px;
+}
+::-webkit-scrollbar-thumb {
+	background: #c4c4c4;
+	border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+	background: #1d1d1d;
+	border-radius: 5px;
+}
+
+// Стили компонентов
+// ! Страница с продуктом
+.product {
+	padding-top: 200px;
+	h1 {
+		font-size: 46px;
+	}
+}

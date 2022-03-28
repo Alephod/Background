@@ -1,0 +1,53 @@
+@import '/src/styles/vars.scss';
+.menu {
+    position: absolute;
+    left: -100%;
+    background: $navbarBg;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    z-index: 9;
+    transition: 1.5s;
+
+    @media screen and (min-width: $md3) {
+        display: none;
+    }
+
+    &_active {
+        left: 0;
+    }
+
+    &__burger {
+        align-self: end;
+    }
+
+    &__search-form {
+        width: 100%;
+        display: flex;
+        margin-bottom: 20px;
+        input {
+            flex-grow: 1;
+            height: 35px;
+            font-size: 20px;
+            &::placeholder {
+                font-size: 20px;
+            }
+        }
+        .search-form__btn {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+    }
+    &__profile {
+        display: flex;
+        font-size: 20px;
+        flex-direction: column;
+        gap: 20px;
+
+        i {
+            font-size: inherit;
+        }
+    }
+}

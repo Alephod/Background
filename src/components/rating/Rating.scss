@@ -1,0 +1,102 @@
+.rating {
+    position: relative;
+}
+.rating-avg {
+    display: flex;
+    gap: 1px;
+
+    &__count {
+        display: flex;
+        align-items: center;
+        margin-left: 8px;
+        cursor: pointer;
+        padding-right: 20px;
+
+        span {
+            margin-left: 10px;
+            position: relative;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                background: #fff;
+                height: 1.5px;
+                transition: 0.1s all ease-in-out;
+                transform-origin: center;
+                top: 9px;
+            }
+
+            &::before {
+                transform: translateX(-3.5px) rotate(45deg);
+            }
+            &::after {
+                transform: translateX(3.5px) rotate(-45deg);
+            }
+        }
+        &_open {
+            span::before {
+                transform: translateX(-3.5px) rotate(-45deg);
+            }
+            span::after {
+                transform: translateX(3.5px) rotate(45deg);
+            }
+        }
+    }
+}
+.rating-desc {
+    background: #1f1f1f;
+    min-width: 400px;
+    border-radius: 2px;
+    padding: 16px 24px 26px;
+    margin-top: 16px;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    transition: 0.2s;
+    user-select: none;
+
+    &_open {
+        opacity: 1;
+        z-index: 99;
+    }
+
+    &__title {
+        font-size: 36px;
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: center;
+        img {
+            width: 32px;
+            margin-right: 12px;
+        }
+    }
+
+    &__stars {
+        min-width: 110px;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__progress {
+        height: 10px;
+        min-width: 200px;
+        background: #424242;
+        border-radius: 2px;
+
+        &-bar {
+            height: 10px;
+            border-radius: 2px;
+            background: #fff;
+            width: 0;
+        }
+    }
+}

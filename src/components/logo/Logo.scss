@@ -1,0 +1,9 @@
+.logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 570px) {
+        justify-self: end;
+    }
+}
