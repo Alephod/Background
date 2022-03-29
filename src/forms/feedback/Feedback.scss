@@ -25,15 +25,9 @@
         }
     }
     &__btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: 150px;
         height: 40px;
-        border-radius: 6px;
-        font-size: 16px;
         font-weight: 600;
-        background: $btnBg;
     }
     &__body {
         display: flex;

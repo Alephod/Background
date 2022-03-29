@@ -12,6 +12,7 @@ interface Props {
 export function ProductImages({ className, images }: Props) {
     const [curImage, setCurImage] = useState(images[0]);
     const [countNextImg, setCountNextImg] = useState(0);
+    const [activeImg, setActiveImg] = useState(0);
 
     const context: any = useContext(ModalContext);
 
@@ -35,10 +36,9 @@ export function ProductImages({ className, images }: Props) {
             nextBtn.current.classList.remove('product-images__btn_disabled');
     }, [countNextImg]);
 
-
-    const showNext = () => {
-        if (countNextImg + 5 < images.length)
-            setCountNextImg(prev => prev + 1);
+    const setImage = (index: number) => {
+        setCurImage(images[index]);
+        setActiveImg(index);
     };
 
     return (
@@ -49,13 +49,13 @@ export function ProductImages({ className, images }: Props) {
             <div className="product-images__items">
                 <div ref={itemsContainer} className="product-images__items-container">
                     {images.map((item, index) =>
-                        <div key={index} onClick={() => setCurImage(images[index])} className="product-images__items-wrapper">
+                        <div key={index} onClick={() => setImage(index)} className={`product-images__items-wrapper ${activeImg == index ? 'product-images__items-wrapper_active' : ''}`}>
                             <img src={'./.' + item} alt='' />
                         </div>
                     )}
                 </div>
             </div>
-            <button ref={nextBtn} onClick={showNext} className='product-images__btn product-images__next'>
+            <button ref={nextBtn} onClick={() => setCountNextImg(prev => prev + 1)} className='product-images__btn product-images__next'>
                 <img src={arrBottom} alt="" />
             </button>
             <div onClick={() => context.setOpened(curImage)} className="product-images__show-item">

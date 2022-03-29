@@ -1,0 +1,35 @@
+.product-order {
+    margin: 0 auto;
+    padding-left: 40px;
+
+    &__container {
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 900;
+        margin-bottom: 15px;
+    }
+
+    &__cost {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    &__color {
+        margin-bottom: 20px;
+    }
+
+    &__dropdown {
+        margin-bottom: 20px;
+        max-width: 320px;
+    }
+    &__btn {
+        width: 100%;
+        margin-bottom: 15px;
+        max-width: 320px;
+        height: 60px;
+    }
+}

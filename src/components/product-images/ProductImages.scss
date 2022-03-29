@@ -28,6 +28,10 @@
         overflow: hidden;
         cursor: pointer;
 
+        &_active {
+            border: 3px solid #0A814F;
+        }
+
         img {
             width: 100%;
         }

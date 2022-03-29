@@ -1,0 +1,22 @@
+@import "/src/styles/vars.scss";
+
+.button {
+    background: $btnBg;
+    display: flex;
+    padding: 0 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 900;
+    border-radius: 6px;
+    transition: 0.5s;
+    color: #fff;
+
+    &:hover {
+        background: $btnHoverBg;
+    }
+
+    &_capitalize {
+        text-transform: uppercase;
+    }
+}

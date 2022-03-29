@@ -4,6 +4,7 @@ import { Rating } from '../../components/rating/Rating';
 import { FeedbackReview, IFeedbackReview } from '../../components/feedback-review/FeedbackReview';
 import { Link } from 'react-router-dom';
 import { EMPTY_FUNC } from '../../vars';
+import { Button } from '../../components/button/Button';
 
 const feedbackResponse: any = [
     {
@@ -123,7 +124,7 @@ export function Feedback() {
         <div className="feedback">
             <div ref={feedbackHeader} className="feedback__header">
                 <Rating className='feedback__rating' reviewCount={110} starCount={[100, 8, 0, 0, 2]} />
-                <Link className='feedback__btn' to="/review/background">Все отзывы</Link>
+                <Button className='feedback__btn' isLink to={'/review/background'} title={'Все отзывы'} />
             </div>
             <div ref={feedbackBody} className="feedback__body">
                 {feedbackResponse.map((item: IFeedbackReview, index: number) => <FeedbackReview feedbackHeaderML={feedbackHeaderML.current} index={index} scrollCount={scrollCount} review={item} />)}

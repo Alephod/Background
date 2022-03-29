@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Button } from '../../components/button/Button';
 import { ProductCard } from '../../components/product-card/ProductCard';
 import { Title } from '../../components/title/Title';
 import './PromoProducts.scss';
@@ -33,7 +34,7 @@ export function PromoProducts(props: any) {
                     />)
                 }
             </div>
-            <Link className='products__btn' to="/collection/44841298">Смотреть всю коллекцию</Link>
+            <Button className='products__btn' isLink to={'/collection/44841298'} title={'Смотреть всю коллекцию'} />
         </div>
     );
 }

@@ -2,6 +2,7 @@ import { faFacebookF, faInstagram, faTwitter, faVk } from '@fortawesome/free-bra
 import { faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import { Button } from '../button/Button';
 import './Footer.scss';
 
 export function Footer() {
@@ -54,7 +55,7 @@ export function Footer() {
                     <p className='footer-item__title'>Подпишитесь на нашу рассылку</p>
                     <form className='footer-item__email' action="post">
                         <input type="text" name="" id="" placeholder='Email адрес' />
-                        <input type="submit" value='ОК'/>
+                        <Button isSubmit title={'ОК'} />
                     </form>
                 </div>
             </div>
