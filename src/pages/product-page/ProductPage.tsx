@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router';
+import { ProductDesc } from '../../components/product-desc/ProductDesc';
 import { ProductImages } from '../../components/product-images/ProductImages';
 import { ProductOrder } from '../../components/product-order/ProductOrder';
 import './ProductPage.scss';
@@ -15,7 +15,25 @@ const productsResponce: Array<any> = [
                 'Черный': ['#000', true],
                 'Белый': ['#FFF', true],
                 'Розовый': ['#C6144B', true]
-            }
+            },
+            desc: {
+                'Пол': 'Мужской',
+                'Сезон': 'Круглогодичный',
+                'Назначение': 'Повседневный',
+                'Вырез горловины': 'Округлая',
+                'Параметры модели на фото': '102-82-102',
+                'Рост модели': '186см'
+            },
+            composition: {
+                'Внешняя сторона': '100% ХЛОПОК'
+            },
+            care: [
+                ['/img/care/wishing/30deg.svg', 'машинная стирка при макс. темп. 30°C'],
+                ['/img/care/bleaching/cant-bleach.svg', 'не использовать отбеливатели'],
+                ['/img/care/drying/cant-squeeze-dry.svg', 'не сушить в барабанной сушилке'],
+                ['/img/care/ironing/ironing-down-110deg.svg', 'гладить при макс. темп. 110° - без пара'],
+                ['/img/care/cleaning/not-dry-cleaning.svg', 'химическая чистка запрещена']
+            ]
         },
         linkName: 'futbolka-s-printom-1'
     },
@@ -36,15 +54,15 @@ export function ProductPage() {
     const { id }: any = useParams();
     const product: any = productsResponce.find(item => item.linkName === id);
 
-    console.log(product);
-
-
     return (
         <div className="product-page container">
             <div className="product-page__info">
                 <ProductImages images={product.href} />
-                <div className="product-page__desc">
-                </div>
+                <ProductDesc product={{
+                    desc: product.info.desc,
+                    composition: product.info.composition,
+                    care: product.info.care
+                }} />
             </div>
             <ProductOrder product={product.info} />
         </div>

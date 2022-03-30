@@ -127,7 +127,7 @@ export function Feedback() {
                 <Button className='feedback__btn' isLink to={'/review/background'} title={'Все отзывы'} />
             </div>
             <div ref={feedbackBody} className="feedback__body">
-                {feedbackResponse.map((item: IFeedbackReview, index: number) => <FeedbackReview feedbackHeaderML={feedbackHeaderML.current} index={index} scrollCount={scrollCount} review={item} />)}
+                {feedbackResponse.map((item: IFeedbackReview, index: number) => <FeedbackReview feedbackHeaderML={feedbackHeaderML.current} key={index} index={index} scrollCount={scrollCount} review={item} />)}
             </div>
         </div>
     );

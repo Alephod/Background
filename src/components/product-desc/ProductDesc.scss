@@ -1,0 +1,37 @@
+.product-desc {
+    width: 100%;
+    background: rgba(45, 45, 45, 0.40);
+    backdrop-filter: blur(40px);
+    border-radius: 6px;
+    padding: 5px 15px 15px;
+
+    &__care {
+        margin-top: 15px;
+        .product-desc__item {
+            img {
+                width: 30px;
+                margin-right: 10px;
+            }
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &__item {
+        color: #dcdcdc;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 6px;
+        }
+
+        span {
+            font-weight: 700;
+            color: #fff;
+            margin-right: 8px;
+        }
+    }
+}

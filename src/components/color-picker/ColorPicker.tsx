@@ -25,6 +25,7 @@ export function ColorPicker({ colors, className, ...props }: Props) {
                 {colors.map((color, index) =>
                     <div
                         title={color[0]}
+                        key={index}
                         className={`color-picker__item ${curImg == index ? 'color-picker__item_checked' : ''} ${!color[1][1] ? 'color-picker__item_disabled' : ''}`}
                         style={{ background: color[1][0] }}
                         onClick={() => setColor(color, index)}

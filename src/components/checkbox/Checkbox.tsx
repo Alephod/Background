@@ -13,9 +13,9 @@ export function Checkbox({ title, className }: Props) {
     return (
         <div onClick={() => setIsChecked(prev => !prev)} className={`checkbox ${isChecked ? 'checkbox_checked' : ''} ${className ? className : ''}`}>
             <p className="checkbox__title">
-                <div className="checkbox__inner">
+                <span className="checkbox__inner">
                     <img src={check} alt="" />
-                </div>
+                </span>
                 {title}
             </p>
         </div>
