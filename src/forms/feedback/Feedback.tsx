@@ -2,7 +2,6 @@ import './Feedback.scss';
 import { useEffect, useRef, useState } from 'react';
 import { Rating } from '../../components/rating/Rating';
 import { FeedbackReview, IFeedbackReview } from '../../components/feedback-review/FeedbackReview';
-import { Link } from 'react-router-dom';
 import { EMPTY_FUNC } from '../../vars';
 import { Button } from '../../components/button/Button';
 

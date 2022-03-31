@@ -6,7 +6,7 @@ import './ProductPage.scss';
 
 const productsResponce: Array<any> = [
     {
-        href: ['./img/product-page/1/1.jpg', './img/product-page/1/2.jpg', './img/product-page/1/3.jpg', './img/product-page/1/4.jpg', './img/product-page/1/5.jpg', './img/product-page/1/6.jpg'],
+        href: ['/img/product-page/1/1.jpg', '/img/product-page/1/2.jpg', '/img/product-page/1/3.jpg', '/img/product-page/1/4.jpg', '/img/product-page/1/5.jpg', '/img/product-page/1/6.jpg'],
         info: {
             title: 'Футболка с принтом 1',
             cost: '799 РУБ',
@@ -56,15 +56,13 @@ export function ProductPage() {
 
     return (
         <div className="product-page container">
-            <div className="product-page__info">
-                <ProductImages images={product.href} />
-                <ProductDesc product={{
-                    desc: product.info.desc,
-                    composition: product.info.composition,
-                    care: product.info.care
-                }} />
-            </div>
+            <ProductImages mobileWidth={900} images={product.href} />
             <ProductOrder product={product.info} />
+            <ProductDesc product={{
+                desc: product.info.desc,
+                composition: product.info.composition,
+                care: product.info.care
+            }} />
         </div>
     );
 }

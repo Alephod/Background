@@ -1,6 +1,18 @@
 .product-page {
     margin-top: 170px;
     margin-bottom: 80px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 500px 1fr;
     width: 100%;
+    gap: 40px;
+
+    @media screen and (max-width: 900px) {
+        grid-template-columns: 400px 1fr;
+    }
+
+    @media screen and (max-width: 766px) {
+        margin-top: 130px;
+        gap: 40px 0;
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,6 +1,5 @@
 .product-order {
     margin: 0 auto;
-    padding-left: 40px;
 
     &__container {
         margin: 0 auto;
@@ -25,11 +24,28 @@
     &__dropdown {
         margin-bottom: 20px;
         max-width: 320px;
+        width: 100%;
     }
     &__btn {
         width: 100%;
         margin-bottom: 15px;
         max-width: 320px;
         height: 60px;
+    }
+
+    @media screen and (max-width: 900px) {
+        grid-column: 2 / 3;
+    }
+    @media screen and (max-width: 766px) {
+        grid-column: 1;
+        margin: 0;
+
+        &__dropdown {
+            max-width: none;
+        }
+
+        &__btn {
+            max-width: none;
+        }
     }
 }

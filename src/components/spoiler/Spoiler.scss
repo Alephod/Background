@@ -1,6 +1,10 @@
 .spoiler {
     width: 100%;
     font-family: 'Montserrat';
+    background: rgba(45, 45, 45, 0.40);
+    backdrop-filter: blur(40px);
+    border-radius: 6px;
+    padding: 5px 15px 10px;
 
     &_active {
         .spoiler__container {

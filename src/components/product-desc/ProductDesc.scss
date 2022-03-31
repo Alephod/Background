@@ -1,9 +1,8 @@
 .product-desc {
     width: 100%;
-    background: rgba(45, 45, 45, 0.40);
-    backdrop-filter: blur(40px);
-    border-radius: 6px;
-    padding: 5px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     &__care {
         margin-top: 15px;
@@ -33,5 +32,15 @@
             color: #fff;
             margin-right: 8px;
         }
+    }
+
+    @media screen and (max-width: 900px) {
+        grid-column: 1 / 2;
+        grid-row: 2;
+    }
+
+    @media screen and (max-width: 766px) {
+        grid-column: 1;
+        grid-row: auto;
     }
 }

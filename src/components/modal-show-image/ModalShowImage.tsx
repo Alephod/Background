@@ -19,7 +19,7 @@ export function ModalShowImage({ image, isActive }: Props) {
 
     return (
         <div className={`modal-show-image ${isActive ? 'modal-show-image_active' : ''}`}>
-            <img src={'./.' + image} alt='' />
+            <img src={image} alt='' />
             <div onClick={context.setClosed} className="modal-show-image__close-btn">
                 <span></span>
                 <span></span>
