@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom';
+import logoSrc from './../../img/logo.png';
 import './Logo.scss';
-// !!! Проблемы с лого (не показывается)
 export function Logo() {
     return (
         <div className="logo">
-            <a href="/">
-                <img src="/img/logo.png" alt="" />
-            </a>
+            <Link to="/">
+                <img src={logoSrc} alt="" />
+            </Link>
         </div>
     );
 }

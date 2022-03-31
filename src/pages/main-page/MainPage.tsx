@@ -15,7 +15,7 @@ const sliderPagesResponse: Array<any> = [
     { id: 7, href: './img/slider/4.jpg' }
 ];
 
-export function MainPage() {
+export function MainPage(props: any) {
     return (
         <div className='main-page'>
             <Slider className='slider__main-page slider_pt' sliderAnimTime={800} sliderInterval={10000} images={sliderPagesResponse} />

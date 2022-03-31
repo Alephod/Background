@@ -45,7 +45,7 @@ export function FeedbackReview({ review, feedbackHeaderML, ...props }: Props) {
     }, [props.scrollCount]);
 
     return (
-        <div ref={feedbackReview} className={`feedback-review ${classBeyond.current != undefined ? classBeyond.current : ''} ${classBeyond.current == undefined && props.index == 5 ? 'feedback-review__out-1600' : ''}${(classBeyond.current == undefined && props.index > 5) ? 'feedback-review__out-1800' : ''}`}>
+        <div ref={feedbackReview} key={props.index} className={`feedback-review ${classBeyond.current != undefined ? classBeyond.current : ''} ${classBeyond.current == undefined && props.index == 5 ? 'feedback-review__out-1100' : ''}${(classBeyond.current == undefined && props.index > 5) ? 'feedback-review__out-1400' : ''}`}>
             <div className="feedback-review__img">
                 <img src={review.author.image} alt="" />
             </div>

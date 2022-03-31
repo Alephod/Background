@@ -1,0 +1,78 @@
+.spoiler {
+    width: 100%;
+    font-family: 'Montserrat';
+    background: rgba(45, 45, 45, 0.40);
+    backdrop-filter: blur(40px);
+    border-radius: 6px;
+    padding: 5px 15px 10px;
+
+    &_active {
+        .spoiler__container {
+            transform: translateY(0);
+        }
+        .spoiler__header {
+            margin-bottom: 15px;
+        }
+        .spoiler__arrow {
+            span::before {
+                transform: translateX(-4px) rotate(-45deg);
+            }
+            span::after {
+                transform: translateX(4px) rotate(45deg);
+            }
+        }
+    }
+
+    &__header {
+        height: 45px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-bottom: 1px solid #fff;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-right: 10px;
+        span {
+            position: relative;
+            right: 12px;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 12px;
+                background: #fff;
+                height: 1.5px;
+                transition: 0.15s all ease-in-out;
+                transform-origin: center;
+            }
+
+            &::before {
+                transform: translateX(-4px) rotate(45deg);
+            }
+            &::after {
+                transform: translateX(4px) rotate(-45deg);
+            }
+        }
+    }
+
+    &__body {
+        overflow: hidden;
+        transition: .3s;
+    }
+    &__container {
+        transition: .3s;
+        transform: translateY(-100%);
+    }
+}
