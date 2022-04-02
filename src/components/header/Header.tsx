@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { MenuContext, MenuProvider } from '../../context/MenuContext';
 import { Menu } from '../../forms/menu/Menu';
 import { Burger } from '../burger/Burger';
+import { LoginHeader } from '../login-header/LoginHeader';
 import { Logo } from '../logo/Logo';
 import { Navbar } from '../navbar/Navbar';
 import { Profile } from '../profile/Profile';
@@ -8,6 +10,7 @@ import { SearchForm } from '../search-form/SearchForm';
 import './Header.scss';
 
 export function Header(props: any) {
+    const [isLogin, setIsLogin] = useState(false);
     return (
         <MenuProvider>
             <MenuContext.Consumer>
@@ -23,7 +26,7 @@ export function Header(props: any) {
                                     />
                                     <Logo />
                                     <div className="header__main">
-                                        <Profile cartCount={0} />
+                                        {isLogin ? <Profile cartCount={0} /> : <LoginHeader />}
                                     </div>
                                 </div>
                                 <Navbar

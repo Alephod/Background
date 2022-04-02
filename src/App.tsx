@@ -4,6 +4,7 @@ import './App.scss';
 import { Footer } from './components/footer/Footer';
 import { Header } from './components/header/Header';
 import { ModalShowImage } from './components/modal-show-image/ModalShowImage';
+import { AuthPage } from './pages/auth-page/AuthPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { ProductPage } from './pages/product-page/ProductPage';
 
@@ -14,26 +15,35 @@ export default function App({ context }: any) {
         <div ref={body} className="body">
             <Header />
             <Switch>
-                <Route exact path="/">
+                <Route key={'main'} exact path="/">
                     <MainPage body={body} />
                 </Route>
-                <Route path="/man">
-                    {/* <Slider className='slider__main-page' sliderAnimTime={800} sliderInterval={10000} images={sliderPagesResponse}/> */}
-
+                <Route key={'man'} path="/man">
                 </Route>
-                <Route path="/product/:id">
+                <Route key={'product-page'} path="/product/:id">
                     <ProductPage />
                 </Route>
-                <Route path="/collection/:id">
+                <Route key={'collection'} path="/collection/:id">
                     <div className="product">
                         <h1>коллекция</h1>
                     </div>
                 </Route>
-                <Route path="/review/background">
+                <Route key={'review'} path="/review/background">
                     <div className="product">
                         <h1>Отзывы о Background</h1>
                     </div>
                 </Route>
+                <Route key={'auth-forgot-password'} path="/auth/forgot-password">
+                    <div className="product">
+                        <h1>Восстановление пароля</h1>
+                    </div>
+                </Route>
+                <Route  key={'auth'} path="/auth">
+                    <AuthPage />
+                </Route>
+                <Route key={'rules'} path="/rules/:id">
+                </Route>
+
                 <Redirect to="/error" />
             </Switch>
             <Footer />
