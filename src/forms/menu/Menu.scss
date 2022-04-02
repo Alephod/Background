@@ -1,4 +1,4 @@
-@import '/src/styles/vars.scss';
+@import "/src/styles/vars.scss";
 .menu {
     position: absolute;
     left: -100%;
@@ -10,6 +10,7 @@
     padding: 15px 20px;
     z-index: 9;
     transition: 1.5s;
+    overflow: hidden;
 
     @media screen and (min-width: $md3) {
         display: none;
@@ -31,6 +32,7 @@
             flex-grow: 1;
             height: 35px;
             font-size: 20px;
+            width: 100%;
             &::placeholder {
                 font-size: 20px;
             }
@@ -48,6 +50,13 @@
 
         i {
             font-size: inherit;
+        }
+    }
+
+    &__login {
+        font-size: 20px !important;
+        svg {
+            margin-right: 7px;
         }
     }
 }

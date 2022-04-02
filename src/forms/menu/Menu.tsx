@@ -1,5 +1,6 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Burger } from '../../components/burger/Burger';
+import { LoginHeader } from '../../components/login-header/LoginHeader';
 import { MenuNav } from '../../components/menu-nav/MenuNav';
 import { Profile } from '../../components/profile/Profile';
 import { SearchForm } from '../../components/search-form/SearchForm';
@@ -10,8 +11,10 @@ interface Props {
 
 }
 
-export function Menu(props: any) {
-    const { isMenuOpen} = useContext(MenuContext);
+export function Menu(props: Props) {
+    const { isMenuOpen } = useContext(MenuContext);
+    const [isLogin, setIsLogin] = useState(false);
+
     return (
         <div className={`menu ${isMenuOpen ? 'menu_active' : ''}`}>
             <Burger
@@ -27,8 +30,8 @@ export function Menu(props: any) {
                 ]}
                 activePageID={0}
             />
-            <SearchForm className="menu__search-form"/>
-            <Profile cartCount={0} className="menu__profile"/>
+            <SearchForm className="menu__search-form" />
+            {isLogin ? <Profile cartCount={0} className="menu__profile" /> : <LoginHeader className="menu__login" title='Войти в аккаунт' />}
         </div>
     );
 }
