@@ -10,7 +10,7 @@ import { SearchForm } from '../search-form/SearchForm';
 import './Header.scss';
 
 export function Header(props: any) {
-    const [isLogin, setIsLogin] = useState(false);
+    const [isLogin, setIsLogin] = useState(true);
     return (
         <MenuProvider>
             <MenuContext.Consumer>

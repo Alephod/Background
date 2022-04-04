@@ -4,6 +4,7 @@ import './App.scss';
 import { Footer } from './components/footer/Footer';
 import { Header } from './components/header/Header';
 import { ModalShowImage } from './components/modal-show-image/ModalShowImage';
+import { AccountPage } from './pages/account-page/AccountPage';
 import { AuthPage } from './pages/auth-page/AuthPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { ProductPage } from './pages/product-page/ProductPage';
@@ -37,6 +38,9 @@ export default function App({ context }: any) {
                     <div className="product">
                         <h1>Восстановление пароля</h1>
                     </div>
+                </Route>
+                <Route key={'account'} path="/user/:id">
+                    <AccountPage />
                 </Route>
                 <Route  key={'auth'} path="/auth">
                     <AuthPage />
