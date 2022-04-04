@@ -3,7 +3,7 @@
 .search-form {
 	font-family: "Mulish";
 
-	@media screen and (max-width: $md3) {
+	@media screen and (max-width: 785px) {
 		&:not(.menu__search-form) {
 			display: none;
 		}

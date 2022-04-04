@@ -22,13 +22,18 @@ export function ProductImages({ className, images }: Props) {
     const prevBtn: any = useRef();
     const nextBtn: any = useRef();
 
-    window.onresize = () => {
+    const giveClassNameToProductImages = () => {
         if (parseFloat(window.getComputedStyle(itemsContainer.current).width.slice(0, -2)) + 35 > document.documentElement.clientWidth)
             itemsWrapper.current.classList.add('product-images__wrapper_out');
         else
             itemsWrapper.current.classList.remove('product-images__wrapper_out');
-
     };
+
+    useEffect(() => {
+        giveClassNameToProductImages();
+        window.onresize = giveClassNameToProductImages;
+    }, []);
+
 
     useEffect(() => {
         if (document.documentElement.clientWidth > 900)
