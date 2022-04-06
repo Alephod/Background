@@ -39,6 +39,7 @@ export function AccountPageMenu({ setMode, mode, id }: Props) {
                 isActive={mode == 'cart'}
             />
             <AccountPageMenuBtn
+                isExit
                 className="account-page-menu__btn account-page-menu__btn_exit"
                 to="/auth"
                 icon={faSignOutAlt}

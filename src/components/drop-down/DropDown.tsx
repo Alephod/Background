@@ -21,7 +21,8 @@ export function DropDown({ title, placeholder, items, className }: Props) {
 
     useEffect(() => {
         window.onclick = (e: any) => {
-            if(e.target != header.current)
+            e.stopPropagation();
+            if (header.current && !header.current.contains(e.target))
                 setIsActive(false);
         };
     }, []);

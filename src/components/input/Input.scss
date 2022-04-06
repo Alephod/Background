@@ -1,5 +1,7 @@
 .input {
     position: relative;
+    outline: none;
+
     &_filled {
         .input__eye {
             display: block;
@@ -7,7 +9,7 @@
     }
     &__title {
         font-size: 16px;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         font-weight: 500;
     }
 

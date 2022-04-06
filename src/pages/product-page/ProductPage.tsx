@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { ProductDesc } from '../../components/product-desc/ProductDesc';
 import { ProductImages } from '../../components/product-images/ProductImages';
@@ -53,6 +54,11 @@ const productsResponce: Array<any> = [
 export function ProductPage() {
     const { id }: any = useParams();
     const product: any = productsResponce.find(item => item.linkName === id);
+
+    useEffect(() => {
+        document.title = product.info.title;
+        document.body.scrollTop = 0;
+    }, []);
 
     return (
         <div className="product-page container">

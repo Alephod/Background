@@ -1,7 +1,9 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/button/Button';
 import { Checkbox } from '../../components/checkbox/Checkbox';
 import { Input } from '../../components/input/Input';
+import { AuthContext } from '../../context/AuthContext';
 
 interface Props {
     className?: string;
@@ -9,6 +11,8 @@ interface Props {
 }
 
 export function Register({ className, setActive }: Props) {
+    const authContext: any = useContext(AuthContext);
+
     return (
         <div className={`register ${className ? className : ''}`}>
             <p className='auth__title'>зарегистрироваться</p>
@@ -20,7 +24,7 @@ export function Register({ className, setActive }: Props) {
             <Checkbox isHTML className='auth__checkbox'>
                 Я согласен(-на) с условиями <Link className='auth__link' to="/rules/terms-of-use">Правил пользования торговой площадкой</Link> и <Link className='auth__link' to="/rules/return">правилами возврата</Link>
             </Checkbox>
-            <Button isCapitalize className='auth__btn' title={'Войти'} />
+            <Button isLink to="/" onClick={authContext.setLogin} isCapitalize className='auth__btn' title={'Войти'} />
             <p onClick={() => setActive('login')} className='auth__link auth__link_login'>Уже есть аккаунт?</p>
         </div>
     );

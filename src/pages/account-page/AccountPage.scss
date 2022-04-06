@@ -1,6 +1,30 @@
+@import "/src/styles/vars.scss";
 .account-page {
     margin-top: 170px;
     display: flex;
     height: 100%;
+    width: 100%;
     margin-bottom: 80px;
+    min-height: 500px;
+    gap: 25px;
+
+    @media screen and (max-width: 870px) {
+        flex-direction: column;
+    }
+    @media screen and (max-width: $md3) {
+        margin-top: 130px;
+    }
+
+    &__container {
+        flex-grow: 1;
+        border-radius: 6px;
+        height: 100%;
+        background: #2d2d2d;
+        padding: 25px 30px;
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: 600;
+    }
 }
