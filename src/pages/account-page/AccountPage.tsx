@@ -4,6 +4,7 @@ import './AccountPage.scss';
 import { AccountPageMenu } from '../../components/account-page-menu/AccountPageMenu';
 import { useEffect, useState } from 'react';
 import { AccountEdit } from '../../forms/account-edit/AccountEdit';
+import { AccountCart } from '../../forms/account-cart/AccountCart';
 
 export function AccountPage() {
     const params: any = useParams();
@@ -42,7 +43,7 @@ export function AccountPage() {
             <div className="account-page__container">
                 {query.mode == 'account' && <AccountEdit />}
                 {query.mode == 'address' && <h1>Адрес</h1>}
-                {query.mode == 'cart' && <h1>Корзина</h1>}
+                {query.mode == 'cart' && <AccountCart />}
             </div>
         </div>
     );

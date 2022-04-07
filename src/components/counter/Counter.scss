@@ -1,0 +1,32 @@
+.counter {
+    display: flex;
+    font-size: 17px;
+    &__btn {
+        user-select: none;
+        width: 35px;
+        border: 1px solid #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        cursor: pointer;
+
+        &:first-child {
+            border-right: 0px;
+            border-radius: 6px 0 0 6px;
+        }
+        &:last-child {
+            border-left: 0px;
+            border-radius: 0 6px 6px 0;
+        }
+    }
+    &__text {
+        border: 1px solid #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        min-width: 35px;
+        padding: 0 8px;
+    }
+}

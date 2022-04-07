@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../components/button/Button';
 import { Checkbox } from '../../components/checkbox/Checkbox';
 import { Input } from '../../components/input/Input';
-import { AuthContext } from '../../context/AuthContext';
+import { UserContext } from '../../context/UserContext';
 
 interface Props {
     className?: string;
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export function Login({ className, setActive }: Props) {
-    const authContext: any = useContext(AuthContext);
+    const userContext: any = useContext(UserContext);
 
     return (
         <div className={`login ${className ? className : ''}`}>
@@ -19,7 +19,7 @@ export function Login({ className, setActive }: Props) {
             <Input type="text" className='auth__input' title={'Email'} />
             <Input type="password" className='auth__input' title={'Пароль'} />
             <Checkbox className='auth__checkbox' title={'Запомнить мои данные'} />
-            <Button isLink to="/" onClick={authContext.setLogin} isCapitalize className='auth__btn' title={'Войти'} />
+            <Button isLink to="/" onClick={userContext.setLogin} isCapitalize className='auth__btn' title={'Войти'} />
             <div className='auth__links'>
                 <Link className='auth__link' to="/auth/forgot-password">Забыли пароль?</Link> <span>или</span> <p onClick={() => setActive('register')} className='auth__link auth__link_register'>Еще нет аккаунта?</p>
             </div>

@@ -9,6 +9,7 @@ const productsResponce: Array<any> = [
     {
         href: ['/img/product-page/1/1.jpg', '/img/product-page/1/2.jpg', '/img/product-page/1/3.jpg', '/img/product-page/1/4.jpg', '/img/product-page/1/5.jpg', '/img/product-page/1/6.jpg'],
         info: {
+            href: '/img/product-page/1/1.jpg',
             title: 'Футболка с принтом 1',
             cost: '799 РУБ',
             size: ['xs', 's', 'm', 'l', 'xl'],
@@ -63,7 +64,7 @@ export function ProductPage() {
     return (
         <div className="product-page container">
             <ProductImages mobileWidth={900} images={product.href} />
-            <ProductOrder product={product.info} />
+            <ProductOrder product={product.info} linkName={product.linkName} />
             <ProductDesc product={{
                 desc: product.info.desc,
                 composition: product.info.composition,

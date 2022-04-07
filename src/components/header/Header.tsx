@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
-import { AuthContext } from '../../context/AuthContext';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 import { MenuContext, MenuProvider } from '../../context/MenuContext';
 import { Menu } from '../../forms/menu/Menu';
 import { Burger } from '../burger/Burger';
@@ -11,10 +11,7 @@ import { SearchForm } from '../search-form/SearchForm';
 import './Header.scss';
 
 export function Header(props: any) {
-    const authContext: any = useContext(AuthContext);
-    // const [isLogin, setIsLogin] = useState(true);
-
-    // const isAuth: boolean = Boolean(localStorage.getItem('user'));
+    const userContext: any = useContext(UserContext);
 
     return (
         <MenuProvider>
@@ -31,7 +28,7 @@ export function Header(props: any) {
                                     />
                                     <Logo />
                                     <div className="header__main">
-                                        {authContext.isAuth ? <Profile cartCount={0} /> : <LoginHeader />}
+                                        {userContext.isAuth ? <Profile /> : <LoginHeader />}
                                     </div>
                                 </div>
                                 <Navbar

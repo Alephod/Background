@@ -23,10 +23,10 @@ export function ProductImages({ className, images }: Props) {
     const nextBtn: any = useRef();
 
     const giveClassNameToProductImages = () => {
-        if (parseFloat(window.getComputedStyle(itemsContainer.current).width.slice(0, -2)) + 35 > document.documentElement.clientWidth)
-            itemsWrapper.current.classList.add('product-images__wrapper_out');
+        if (itemsContainer.current && parseFloat(window.getComputedStyle(itemsContainer.current).width.slice(0, -2)) + 35 > document.documentElement.clientWidth)
+            itemsWrapper.current && itemsWrapper.current.classList.add('product-images__wrapper_out');
         else
-            itemsWrapper.current.classList.remove('product-images__wrapper_out');
+            itemsWrapper.current && itemsWrapper.current.classList.remove('product-images__wrapper_out');
     };
 
     useEffect(() => {

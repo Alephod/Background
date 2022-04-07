@@ -4,15 +4,15 @@ import './index.scss';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/ModalContext';
-import { AuthProvider } from './context/AuthContext';
+import { UserProvider } from './context/UserContext';
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <ModalProvider>
-                <AuthProvider>
+                <UserProvider>
                     <App />
-                </AuthProvider>
+                </UserProvider>
             </ModalProvider>
         </BrowserRouter>
     </React.StrictMode>,
