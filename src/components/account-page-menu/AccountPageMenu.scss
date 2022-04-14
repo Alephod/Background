@@ -1,0 +1,35 @@
+@import "/src/styles/vars.scss";
+
+.account-page-menu {
+    width: 100%;
+    max-width: 320px;
+    background: #2d2d2d;
+    padding: 30px 0 15px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: 1050px) {
+        max-width: 250px;
+    }
+
+    @media screen and (max-width: 870px) {
+        max-width: none;
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    &__btn {
+        &_exit {
+            margin-top: auto;
+            color: $btnBg !important;
+            font-weight: 700;
+        }
+    }
+}

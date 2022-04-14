@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 import { MenuContext, MenuProvider } from '../../context/MenuContext';
 import { Menu } from '../../forms/menu/Menu';
 import { Burger } from '../burger/Burger';
@@ -10,7 +11,8 @@ import { SearchForm } from '../search-form/SearchForm';
 import './Header.scss';
 
 export function Header(props: any) {
-    const [isLogin, setIsLogin] = useState(false);
+    const userContext: any = useContext(UserContext);
+
     return (
         <MenuProvider>
             <MenuContext.Consumer>
@@ -26,7 +28,7 @@ export function Header(props: any) {
                                     />
                                     <Logo />
                                     <div className="header__main">
-                                        {isLogin ? <Profile cartCount={0} /> : <LoginHeader />}
+                                        {userContext.isAuth ? <Profile /> : <LoginHeader />}
                                     </div>
                                 </div>
                                 <Navbar

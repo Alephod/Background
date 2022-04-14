@@ -1,0 +1,108 @@
+@import "/src/styles/vars.scss";
+
+.react-datepicker {
+    background-color: #1e1e1e;
+    font-family: $SfontFamily, "sans-serif";
+    border: 1px solid #333;
+
+    @media screen and (max-width: 450px) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: calc(100vw - 0px);
+        &-popper {
+            transform: none !important;
+        }
+    }
+
+    &__triangle {
+        @media screen and (max-width: 450px) {
+            display: none;
+        }
+        &::before {
+            border-top-color: #333 !important;
+            border-bottom-color: #1e1e1e !important;
+        }
+        &::after {
+            border-bottom-color: #111 !important;
+            border-top-color: #1e1e1e !important;
+        }
+    }
+
+    &__month-container {
+        width: 250px;
+
+        @media screen and (max-width: 450px) {
+            width: 100%;
+        }
+
+        & * {
+            color: #fff;
+        }
+    }
+
+    &__header {
+        background-color: #111;
+        border-bottom: 1px solid #333;
+    }
+
+    &__navigation-icon::before {
+        border-color: #fff;
+    }
+
+    &__current-month {
+        text-transform: capitalize;
+        font-size: 14px;
+
+        @media screen and (max-width: 450px) {
+            font-size: 16px;
+            height: 20px;
+        }
+    }
+
+    &__day-names {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        margin: 5px 0.5rem -5px;
+        @media screen and (max-width: 450px) {
+            font-size: 15px;
+        }
+    }
+
+    &__week {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__day {
+        font-size: 12px;
+        border-radius: 50%;
+        &:hover {
+            border-radius: 50%;
+            background-color: $btnBg;
+        }
+        @media screen and (max-width: 450px) {
+            width: 2.1rem;
+            line-height: 2.1rem;
+            font-size: 15px;
+        }
+
+        &--selected {
+            background-color: $btnHoverBg;
+            font-weight: 500;
+        }
+        &--outside-month {
+            opacity: 0.7;
+        }
+        &--disabled {
+            opacity: 0.4;
+        }
+        &--keyboard-selected {
+            background-color: $btnBg;
+        }
+        &--today {
+            background: #292929;
+        }
+    }
+}

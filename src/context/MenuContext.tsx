@@ -8,8 +8,8 @@ export const MenuContext: any = React.createContext<Partial<any>>({});
 
 export function MenuProvider(props: Props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const setOpened: Function = () => setIsMenuOpen(true);
-    const setClosed: Function = () => setIsMenuOpen(false);
+    const setOpened = () => setIsMenuOpen(true);
+    const setClosed = () => setIsMenuOpen(false);
     return (
         <MenuContext.Provider value={{
             isMenuOpen: isMenuOpen,

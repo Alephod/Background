@@ -1,0 +1,27 @@
+@import "/src/styles/vars.scss";
+
+.account-page-menu-btn {
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    font-size: 16px;
+    background: transparent;
+    transition: 0.2s;
+    &:hover {
+        background: #282828;
+    }
+
+    &_active {
+        background: $btnBg;
+        &:hover {
+        background: $btnHoverBg;
+    }
+    }
+
+    &__icon {
+        width: 30px;
+    }
+}

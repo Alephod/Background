@@ -3,6 +3,7 @@ import { Title } from './../../components/title/Title';
 import { PromoProducts } from '../../forms/promo-products/PromoProducts';
 import { Slider } from '../../components/slider/Slider';
 import { Feedback } from '../../forms/feedback/Feedback';
+import { useEffect } from 'react';
 
 const sliderPagesResponse: Array<any> = [
     { id: 0, href: './img/slider/1.jpg' },
@@ -16,6 +17,10 @@ const sliderPagesResponse: Array<any> = [
 ];
 
 export function MainPage(props: any) {
+    useEffect(() => {
+        document.title = 'Главная страница';
+        document.documentElement.scrollTop = 0;
+    }, []);
     return (
         <div className='main-page'>
             <Slider className='slider__main-page slider_pt' sliderAnimTime={800} sliderInterval={10000} images={sliderPagesResponse} />

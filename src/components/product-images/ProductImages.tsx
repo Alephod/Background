@@ -23,10 +23,10 @@ export function ProductImages({ className, images }: Props) {
     const nextBtn: any = useRef();
 
     const giveClassNameToProductImages = () => {
-        if (parseFloat(window.getComputedStyle(itemsContainer.current).width.slice(0, -2)) + 35 > document.documentElement.clientWidth)
-            itemsWrapper.current.classList.add('product-images__wrapper_out');
+        if (itemsContainer.current && parseFloat(window.getComputedStyle(itemsContainer.current).width.slice(0, -2)) + 35 > document.documentElement.clientWidth)
+            itemsWrapper.current && itemsWrapper.current.classList.add('product-images__wrapper_out');
         else
-            itemsWrapper.current.classList.remove('product-images__wrapper_out');
+            itemsWrapper.current && itemsWrapper.current.classList.remove('product-images__wrapper_out');
     };
 
     useEffect(() => {
@@ -59,6 +59,12 @@ export function ProductImages({ className, images }: Props) {
         setActiveImg(index);
     };
 
+    const openImage = (image: string) => {
+        context.setOpened(curImage);
+        context.setMode('image');
+        context.setChildren(<img src={image} alt='' />);
+    };
+
     return (
         <div className={`product-images ${className ? className : ''}`}>
 
@@ -80,7 +86,7 @@ export function ProductImages({ className, images }: Props) {
                 </button>
             </div>
 
-            <div onClick={() => context.setOpened(curImage)} className="product-images__show-item">
+            <div onClick={() => openImage(curImage)} className="product-images__show-item">
                 <img src={curImage} alt="" />
             </div>
         </div>

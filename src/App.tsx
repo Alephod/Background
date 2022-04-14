@@ -1,15 +1,18 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { Footer } from './components/footer/Footer';
 import { Header } from './components/header/Header';
-import { ModalShowImage } from './components/modal-show-image/ModalShowImage';
+import { Modal } from './components/modal/Modal';
+import { ModalContext } from './context/ModalContext';
+import { AccountPage } from './pages/account-page/AccountPage';
 import { AuthPage } from './pages/auth-page/AuthPage';
 import { MainPage } from './pages/main-page/MainPage';
 import { ProductPage } from './pages/product-page/ProductPage';
 
 
-export default function App({ context }: any) {
+export default function App(props: any) {
+    const modalContext: any = useContext(ModalContext);
     const body: any = useRef();
     return (
         <div ref={body} className="body">
@@ -38,6 +41,9 @@ export default function App({ context }: any) {
                         <h1>Восстановление пароля</h1>
                     </div>
                 </Route>
+                <Route key={'account'} path="/user/:id">
+                    <AccountPage />
+                </Route>
                 <Route  key={'auth'} path="/auth">
                     <AuthPage />
                 </Route>
@@ -47,7 +53,7 @@ export default function App({ context }: any) {
                 <Redirect to="/error" />
             </Switch>
             <Footer />
-            <ModalShowImage image={context.currentImage} isActive={context.isActive} />
+            <Modal />
         </div >
     );
 }

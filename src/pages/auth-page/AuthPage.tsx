@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Login } from '../../forms/login/Login';
 import { Register } from '../../forms/register/Register';
 import './AuthPage.scss';
 
 export function AuthPage() {
     const [active, setActive] = useState('login');
+    useEffect(() => {
+        document.title = 'Авторизация';
+        document.documentElement.scrollTop = 0;
+    }, []);
     return (
         <div className="auth-page container">
             <h1 className="auth-page__title">Привет!</h1>

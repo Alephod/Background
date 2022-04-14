@@ -4,6 +4,7 @@ import { LoginHeader } from '../../components/login-header/LoginHeader';
 import { MenuNav } from '../../components/menu-nav/MenuNav';
 import { Profile } from '../../components/profile/Profile';
 import { SearchForm } from '../../components/search-form/SearchForm';
+import { UserContext } from '../../context/UserContext';
 import { MenuContext } from '../../context/MenuContext';
 import './Menu.scss';
 
@@ -13,7 +14,7 @@ interface Props {
 
 export function Menu(props: Props) {
     const { isMenuOpen } = useContext(MenuContext);
-    const [isLogin, setIsLogin] = useState(false);
+    const userContext: any = useContext(UserContext);
 
     return (
         <div className={`menu ${isMenuOpen ? 'menu_active' : ''}`}>
@@ -31,7 +32,7 @@ export function Menu(props: Props) {
                 activePageID={0}
             />
             <SearchForm className="menu__search-form" />
-            {isLogin ? <Profile cartCount={0} className="menu__profile" /> : <LoginHeader className="menu__login" title='Войти в аккаунт' />}
+            {userContext.isAuth ? <Profile className="menu__profile" /> : <LoginHeader className="menu__login" title='Войти в аккаунт' />}
         </div>
     );
 }

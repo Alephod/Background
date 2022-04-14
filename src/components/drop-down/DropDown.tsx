@@ -6,9 +6,10 @@ interface Props {
     placeholder: string;
     items: string[];
     className?: string;
+    onChange?: (state: any) => void;
 }
 
-export function DropDown({ title, placeholder, items, className }: Props) {
+export function DropDown({ title, placeholder, items, className, ...props }: Props) {
     const [curItem, setCurItem] = useState(placeholder);
     const [isActive, setIsActive] = useState(false);
 
@@ -17,11 +18,13 @@ export function DropDown({ title, placeholder, items, className }: Props) {
     const selectItem = (item: string) => {
         setCurItem(item);
         setIsActive(false);
+        props.onChange && props.onChange(item);
     };
 
     useEffect(() => {
         window.onclick = (e: any) => {
-            if(e.target != header.current)
+            e.stopPropagation();
+            if (header.current && !header.current.contains(e.target))
                 setIsActive(false);
         };
     }, []);
