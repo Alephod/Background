@@ -19,7 +19,7 @@ const sliderPagesResponse: Array<any> = [
 export function MainPage(props: any) {
     useEffect(() => {
         document.title = 'Главная страница';
-        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }, []);
     return (
         <div className='main-page'>

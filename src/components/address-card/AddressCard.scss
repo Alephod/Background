@@ -1,0 +1,41 @@
+@import "/src/styles/vars.scss";
+
+.address-card {
+    background: #1f1f1f;
+    border-radius: 6px;
+    padding: 16px;
+    width: 100%;
+    max-width: 700px;
+
+    &__title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    &__items-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &__item {
+        color: #bfbfbf;
+        span {
+            font-weight: 600;
+            color: #fff;
+        }
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: end;
+    }
+
+    &__btn {
+        color: $btnBg;
+        cursor: pointer;
+        font-weight: 500;
+        user-select: none;
+    }
+}

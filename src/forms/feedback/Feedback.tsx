@@ -122,7 +122,7 @@ export function Feedback() {
     return (
         <div className="feedback">
             <div ref={feedbackHeader} className="feedback__header">
-                <Rating className='feedback__rating' reviewCount={110} starCount={[100, 8, 0, 0, 2]} />
+                <Rating className='feedback__rating' reviewCount={15} starCount={[10, 3, 1, 1, 0]} />
                 <Button className='feedback__btn' isLink to={'/review/background'} title={'Все отзывы'} />
             </div>
             <div ref={feedbackBody} className="feedback__body">

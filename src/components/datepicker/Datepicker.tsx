@@ -7,11 +7,16 @@ import './Datepicker.scss';
 
 registerLocale('ru', ru);
 
-export function Datepicker() {
+interface Props {
+    getDate?: (state: any) => void
+}
+
+export function Datepicker({ getDate }: Props) {
     const [date, setDate] = useState();
 
-    function onChange(date) {
+    function onChange(date: any) {
         setDate(date);
+        getDate && getDate(date);
     }
 
     return <DatePicker maxDate={new Date()} locale="ru" dateFormat="dd.MM.yyyy" selected={date} onChange={onChange} />;

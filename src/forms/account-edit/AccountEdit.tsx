@@ -18,7 +18,7 @@ export function AccountEdit({ className }: Props) {
                 <Input className='account-edit__input' isRequired title={'Имя'} type={'text'} />
                 <Input className='account-edit__input' isRequired title={'Фамилия'} type={'text'} />
                 <Input className='account-edit__input' isRequired title={'Email'} type={'text'} />
-                <Input className='account-edit__input' isRequired title={'Номер телефона'} type={'text'} />
+                <Input className='account-edit__input' isRequired title={'Номер телефона'} type={'phone'} />
                 <DropDown title='Пол' placeholder={'Не выбран'} items={['Не выбран', 'Мужской', 'Женский']} />
                 <Input title={'Дата рождения'} type={'date'} />
             </div>

@@ -7,7 +7,7 @@ export function AuthPage() {
     const [active, setActive] = useState('login');
     useEffect(() => {
         document.title = 'Авторизация';
-        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }, []);
     return (
         <div className="auth-page container">

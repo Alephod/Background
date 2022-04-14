@@ -5,6 +5,7 @@ import { AccountPageMenu } from '../../components/account-page-menu/AccountPageM
 import { useEffect, useState } from 'react';
 import { AccountEdit } from '../../forms/account-edit/AccountEdit';
 import { AccountCart } from '../../forms/account-cart/AccountCart';
+import { AccountAddress } from '../../forms/account-address/AccountAddress';
 
 export function AccountPage() {
     const params: any = useParams();
@@ -13,7 +14,7 @@ export function AccountPage() {
 
     useEffect(() => {
         document.title = 'Аккаунт';
-        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }, []);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ export function AccountPage() {
             <AccountPageMenu id={params.id} mode={mode} setMode={setMode} />
             <div className="account-page__container">
                 {query.mode == 'account' && <AccountEdit />}
-                {query.mode == 'address' && <h1>Адрес</h1>}
+                {query.mode == 'address' && <AccountAddress />}
                 {query.mode == 'cart' && <AccountCart />}
             </div>
         </div>

@@ -59,6 +59,12 @@ export function ProductImages({ className, images }: Props) {
         setActiveImg(index);
     };
 
+    const openImage = (image: string) => {
+        context.setOpened(curImage);
+        context.setMode('image');
+        context.setChildren(<img src={image} alt='' />);
+    };
+
     return (
         <div className={`product-images ${className ? className : ''}`}>
 
@@ -80,7 +86,7 @@ export function ProductImages({ className, images }: Props) {
                 </button>
             </div>
 
-            <div onClick={() => context.setOpened(curImage)} className="product-images__show-item">
+            <div onClick={() => openImage(curImage)} className="product-images__show-item">
                 <img src={curImage} alt="" />
             </div>
         </div>

@@ -39,9 +39,104 @@ const productsResponce: Array<any> = [
         },
         linkName: 'futbolka-s-printom-1'
     },
-    { href: ['./img/product-page/2/2-1.jpg'], title: 'Футболка с принтом 2', cost: '799 РУБ', linkName: 'futbolka-s-printom-2' },
-    { href: ['./img/product-page/3/3-1.jpg'], title: 'Футболка с принтом 3', cost: '799 РУБ', linkName: 'futbolka-s-printom-3' },
-    { href: ['./img/product-page/4/4-1.jpg'], title: 'Футболка с принтом 4', cost: '799 РУБ', linkName: 'futbolka-s-printom-4' },
+    {
+        href: ['/img/product-page/2/1.jpg', '/img/product-page/2/2.jpg', '/img/product-page/2/3.jpg', '/img/product-page/2/4.jpg', '/img/product-page/2/5.jpg', '/img/product-page/2/6.jpg'],
+        info: {
+            href: '/img/product-page/2/1.jpg',
+            title: 'Футболка с принтом 2',
+            cost: '799 РУБ',
+            size: ['xs', 'm', 'l', 'xl'],
+            colors: {
+                'Черный': ['#000', true],
+                'Синий': ['#172aff', false],
+                'Желтый': ['#ebcc34', true]
+            },
+            desc: {
+                'Пол': 'Мужской',
+                'Сезон': 'Круглогодичный',
+                'Назначение': 'Повседневный',
+                'Вырез горловины': 'Округлая',
+                'Параметры модели на фото': '102-82-102',
+                'Рост модели': '186см'
+            },
+            composition: {
+                'Внешняя сторона': '100% ХЛОПОК'
+            },
+            care: [
+                ['/img/care/wishing/30deg.svg', 'машинная стирка при макс. темп. 30°C'],
+                ['/img/care/bleaching/cant-bleach.svg', 'не использовать отбеливатели'],
+                ['/img/care/drying/cant-squeeze-dry.svg', 'не сушить в барабанной сушилке'],
+                ['/img/care/ironing/ironing-down-110deg.svg', 'гладить при макс. темп. 110° - без пара'],
+                ['/img/care/cleaning/not-dry-cleaning.svg', 'химическая чистка запрещена']
+            ]
+        },
+        linkName: 'futbolka-s-printom-2'
+    },
+    {
+        href: ['/img/product-page/3/1.jpg', '/img/product-page/3/2.jpg', '/img/product-page/3/3.jpg', '/img/product-page/3/4.jpg', '/img/product-page/3/5.jpg', '/img/product-page/3/6.jpg'],
+        info: {
+            href: '/img/product-page/3/1.jpg',
+            title: 'Футболка с принтом 3',
+            cost: '799 РУБ',
+            size: ['xs', 's', 'xl'],
+            colors: {
+                'Красный': ['#f00202', true],
+                'Белый': ['#FFF', true],
+                'Синий': ['#172aff', true]
+            },
+            desc: {
+                'Пол': 'Мужской',
+                'Сезон': 'Круглогодичный',
+                'Назначение': 'Повседневный',
+                'Вырез горловины': 'Округлая',
+                'Параметры модели на фото': '102-82-102',
+                'Рост модели': '186см'
+            },
+            composition: {
+                'Внешняя сторона': '100% ХЛОПОК'
+            },
+            care: [
+                ['/img/care/wishing/30deg.svg', 'машинная стирка при макс. темп. 30°C'],
+                ['/img/care/bleaching/cant-bleach.svg', 'не использовать отбеливатели'],
+                ['/img/care/drying/cant-squeeze-dry.svg', 'не сушить в барабанной сушилке'],
+                ['/img/care/ironing/ironing-down-110deg.svg', 'гладить при макс. темп. 110° - без пара'],
+                ['/img/care/cleaning/not-dry-cleaning.svg', 'химическая чистка запрещена']
+            ]
+        },
+        linkName: 'futbolka-s-printom-3'
+    },
+    {
+        href: ['/img/product-page/4/1.jpg', '/img/product-page/4/2.jpg', '/img/product-page/4/3.jpg', '/img/product-page/4/4.jpg', '/img/product-page/4/5.jpg', '/img/product-page/4/6.jpg'],
+        info: {
+            href: '/img/product-page/4/1.jpg',
+            title: 'Футболка с принтом 4',
+            cost: '799 РУБ',
+            size: ['s', 'm', 'l'],
+            colors: {
+                'Черный': ['#000', false],
+                'Белый': ['#FFF', true]
+            },
+            desc: {
+                'Пол': 'Мужской',
+                'Сезон': 'Круглогодичный',
+                'Назначение': 'Повседневный',
+                'Вырез горловины': 'Округлая',
+                'Параметры модели на фото': '102-82-102',
+                'Рост модели': '186см'
+            },
+            composition: {
+                'Внешняя сторона': '100% ХЛОПОК'
+            },
+            care: [
+                ['/img/care/wishing/30deg.svg', 'машинная стирка при макс. темп. 30°C'],
+                ['/img/care/bleaching/cant-bleach.svg', 'не использовать отбеливатели'],
+                ['/img/care/drying/cant-squeeze-dry.svg', 'не сушить в барабанной сушилке'],
+                ['/img/care/ironing/ironing-down-110deg.svg', 'гладить при макс. темп. 110° - без пара'],
+                ['/img/care/cleaning/not-dry-cleaning.svg', 'химическая чистка запрещена']
+            ]
+        },
+        linkName: 'futbolka-s-printom-4'
+    },
     { href: ['./img/product-page/5/5-1.jpg'], title: 'Футболка с принтом 5', cost: '799 РУБ', linkName: 'futbolka-s-printom-5' },
     { href: ['./img/product-page/6/6-1.jpg'], title: 'Футболка с принтом 6', cost: '799 РУБ', linkName: 'futbolka-s-printom-6' },
     { href: ['./img/product-page/7/7-1.jpg'], title: 'Футболка с принтом 7', cost: '799 РУБ', linkName: 'futbolka-s-printom-7' },
@@ -58,7 +153,7 @@ export function ProductPage() {
 
     useEffect(() => {
         document.title = product.info.title;
-        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }, []);
 
     return (

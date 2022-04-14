@@ -91,6 +91,7 @@
       "eqeqeq": [
         "off"
       ],
+      "no-useless-escape" : "off",
       "react/jsx-uses-vars": "error",
       "react/jsx-uses-react": "error"
     },

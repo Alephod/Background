@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { Footer } from './components/footer/Footer';
 import { Header } from './components/header/Header';
-import { ModalShowImage } from './components/modal-show-image/ModalShowImage';
+import { Modal } from './components/modal/Modal';
 import { ModalContext } from './context/ModalContext';
 import { AccountPage } from './pages/account-page/AccountPage';
 import { AuthPage } from './pages/auth-page/AuthPage';
@@ -53,7 +53,7 @@ export default function App(props: any) {
                 <Redirect to="/error" />
             </Switch>
             <Footer />
-            <ModalShowImage image={modalContext.currentImage} isActive={modalContext.isActive} />
+            <Modal />
         </div >
     );
 }
