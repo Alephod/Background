@@ -8,11 +8,12 @@ import './Datepicker.scss';
 registerLocale('ru', ru);
 
 interface Props {
-    getDate?: (state: any) => void
+    getDate?: (state: any) => void;
+    selected?: Date;
 }
 
-export function Datepicker({ getDate }: Props) {
-    const [date, setDate] = useState();
+export function Datepicker({ getDate, selected }: Props) {
+    const [date, setDate] = useState(selected);
 
     function onChange(date: any) {
         setDate(date);
