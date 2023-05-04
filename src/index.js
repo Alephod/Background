@@ -8,13 +8,13 @@ import { UserProvider } from './context/UserContext';
 
 ReactDOM.render(
     <React.StrictMode>
-        <HashRouter>
+        <BrowserRouter>
             <ModalProvider>
                 <UserProvider>
                     <App />
                 </UserProvider>
             </ModalProvider>
-        </HashRouter>
+        </BrowserRouter>
     </React.StrictMode>,
     document.querySelector('#root')
 );

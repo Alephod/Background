@@ -3,7 +3,19 @@
     display: flex;
     justify-content: center;
 
-    @media screen and (max-width: 570px) {
+    @media screen and (max-width: 580px) {
         justify-self: end;
+    }
+}
+
+.logo__desktop {
+    @media screen and (max-width: 580px) {
+        display: none;
+    }
+}
+
+.logo__mobile {
+    @media screen and (min-width: 580px) {
+        display: none;
     }
 }

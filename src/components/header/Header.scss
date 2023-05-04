@@ -18,6 +18,7 @@
 		height: 100%;
 		overflow: hidden;
 		color: #fff;
+		min-height: 83px;
 
 		@media screen and (max-width: 580px) {
 			grid-template-columns: 70px 1fr;

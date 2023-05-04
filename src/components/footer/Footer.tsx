@@ -11,19 +11,19 @@ export function Footer() {
             <div className="footer__container container">
                 <div className="footer-item">
                     <p className='footer-item__title'>Наши соцсети</p>
-                    <a href="https://google.com" className='footer-item__link'>
+                    <a href="https://vk.com" className='footer-item__link'>
                         <div className="footer-item__icon"><FontAwesomeIcon icon={faVk} /></div>
                         ВКонтакте
                     </a>
-                    <a href="/" className='footer-item__link'>
+                    <a href="https://facebook.com" className='footer-item__link'>
                         <div className="footer-item__icon"><FontAwesomeIcon icon={faFacebookF} /></div>
                         Facebook
                     </a>
-                    <a href="/" className='footer-item__link'>
+                    <a href="https://twitter.com" className='footer-item__link'>
                         <div className="footer-item__icon"><FontAwesomeIcon icon={faTwitter} /></div>
                         Twitter
                     </a>
-                    <a href="/" className='footer-item__link'>
+                    <a href="https://instagram.com" className='footer-item__link'>
                         <div className="footer-item__icon"><FontAwesomeIcon icon={faInstagram} /></div>
                         Instagram
                     </a>

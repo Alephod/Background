@@ -25,6 +25,11 @@ export default function App(props: any) {
                 </Route>
                 <Route key={'man'} path="/man">
                 </Route>
+                <Route key={'qr'} path="/qr">
+                    <div className="qr">
+                        <img src="./../../img/qr.png" width="330" height="330" />
+                    </div>
+                </Route>
                 <Route key={'product-page'} path="/product/:id">
                     <ProductPage />
                 </Route>
@@ -50,8 +55,15 @@ export default function App(props: any) {
                     <AuthPage />
                 </Route>
                 <Route key={'rules'} path="/rules/:id">
+                    <div className="product">
+                        <h1>Восстановление пароля</h1>
+                    </div>
                 </Route>
-
+                <Route key={'error'} path="/error">
+                    <div className="error">
+                        <h1>Ошибка 404</h1>
+                    </div>
+                </Route>
                 <Redirect to="/error" />
             </Switch>
             <Footer />
