@@ -8,7 +8,50 @@ interface Props {
 
 export const UserContext: any = React.createContext<Partial<any>>({});
 
-!localStorage.getItem('users') && localStorage.setItem('users', JSON.stringify(''));
+const userAdmin: any = [
+    {
+        'email': 'admin',
+        'password': 'admin',
+        'userInfo': {
+            'id': 'b6eefef5-ee08-4eee-9659-52144fddd019',
+            'name': 'Адель',
+            'lastname': 'Гимадиев',
+            'email': 'admin',
+            'phone': '89179144623',
+            'gender': 'Мужской',
+            'birthday': '2022-04-05T21:00:00.000Z',
+            'isGetNews': true
+        },
+        'cart': [
+            {
+                'title': 'Футболка с принтом 2',
+                'cost': '799 РУБ',
+                'size': 'l',
+                'color': [
+                    'Желтый',
+                    '#ebcc34'
+                ],
+                'count': 2,
+                'href': '/img/product-page/2/1.jpg',
+                'link': 'futbolka-s-printom-2'
+            },
+            {
+                'title': 'Футболка с принтом 1',
+                'cost': '799 РУБ',
+                'size': 'm',
+                'color': [
+                    'Белый',
+                    '#FFF'
+                ],
+                'count': 2,
+                'href': '/img/product-page/1/1.jpg',
+                'link': 'futbolka-s-printom-1'
+            }
+        ], 'address': []
+    }
+];
+
+!localStorage.getItem('users') && localStorage.setItem('users', JSON.stringify(userAdmin));
 !localStorage.getItem('user') && localStorage.setItem('user', JSON.stringify({ isLogin: false, userInfo: {}, cart: [], address: [] }));
 
 export function UserProvider(props: Props) {

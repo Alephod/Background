@@ -13,7 +13,6 @@ import { ProductPage } from './pages/product-page/ProductPage';
 
 
 export default function App(props: any) {
-    const modalContext: any = useContext(ModalContext);
     const userContext: any = useContext(UserContext);
     const body: any = useRef();
 
@@ -44,7 +43,7 @@ export default function App(props: any) {
                         <h1>Восстановление пароля</h1>
                     </div>
                 </Route>
-                {userContext.isAuth && <Route key={'account'} path="/user/:id">
+                {userContext.isAuth && <Route key={'account'} path="/user">
                     <AccountPage />
                 </Route>}
                 <Route key={'auth'} path="/auth">

@@ -5,10 +5,9 @@ import { AccountPageMenuBtn } from '../account-page-menu-btn/AccountPageMenuBtn'
 interface Props {
     setMode: (state: string) => void;
     mode: string;
-    id: string;
 }
 
-export function AccountPageMenu({ setMode, mode, id }: Props) {
+export function AccountPageMenu({ setMode, mode }: Props) {
     return (
         <div className="account-page-menu">
             <p className="account-page-menu__title">Учетная запись</p>
@@ -16,7 +15,7 @@ export function AccountPageMenu({ setMode, mode, id }: Props) {
                 mode="account"
                 setMode={setMode}
                 className="account-page-menu__btn"
-                to={`/user/${id}?mode=account`}
+                to='/user?mode=account'
                 icon={faUser} title={'Аккаунт'}
                 isActive={mode == 'account'}
             />
@@ -24,7 +23,7 @@ export function AccountPageMenu({ setMode, mode, id }: Props) {
                 mode="address"
                 setMode={setMode}
                 className="account-page-menu__btn"
-                to={`/user/${id}?mode=address`}
+                to='/user?mode=address'
                 icon={faAddressBook}
                 title={'Список адресов'}
                 isActive={mode == 'address'}
@@ -33,7 +32,7 @@ export function AccountPageMenu({ setMode, mode, id }: Props) {
                 mode="cart"
                 setMode={setMode}
                 className="account-page-menu__btn"
-                to={`/user/${id}?mode=cart`}
+                to='/user?mode=cart'
                 icon={faShoppingCart}
                 title={'Корзина'}
                 isActive={mode == 'cart'}

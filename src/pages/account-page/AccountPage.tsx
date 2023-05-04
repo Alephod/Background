@@ -8,7 +8,6 @@ import { AccountCart } from '../../forms/account-cart/AccountCart';
 import { AccountAddress } from '../../forms/account-address/AccountAddress';
 
 export function AccountPage() {
-    const params: any = useParams();
     const query: any = parse(useLocation().search.slice(1));
     const [mode, setMode] = useState(query.mode);
 
@@ -40,7 +39,7 @@ export function AccountPage() {
 
     return (
         <div className="account-page container">
-            <AccountPageMenu id={params.id} mode={mode} setMode={setMode} />
+            <AccountPageMenu mode={mode} setMode={setMode} />
             <div className="account-page__container">
                 {query.mode == 'account' && <AccountEdit />}
                 {query.mode == 'address' && <AccountAddress />}

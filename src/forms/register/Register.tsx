@@ -69,7 +69,7 @@ export function Register({ className, setActive }: Props) {
             <Checkbox isHTML className='auth__checkbox'>
                 Я согласен(-на) с условиями <Link className='auth__link' to="/rules/terms-of-use">Правил пользования торговой площадкой</Link> и <Link className='auth__link' to="/rules/return">правилами возврата</Link>
             </Checkbox>
-            <Button isLink to="/" onClick={addUser} isCapitalize className='auth__btn' title={'Войти'} />
+            <a href="/" onClick={addUser} className='auth__btn button_capitalize button'>Войти</a>
             <p onClick={() => setActive('login')} className='auth__link auth__link_login'>Уже есть аккаунт?</p>
         </div>
     );

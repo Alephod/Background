@@ -1,6 +1,5 @@
 import { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../../components/button/Button';
 import { Checkbox } from '../../components/checkbox/Checkbox';
 import { Input } from '../../components/input/Input';
 import { UserContext } from '../../context/UserContext';
@@ -26,7 +25,7 @@ export function Login({ className, setActive }: Props) {
             <Input _ref={email} type="text" className='auth__input' title={'Email'} />
             <Input _ref={password} type="password" className='auth__input' title={'Пароль'} />
             <Checkbox className='auth__checkbox' title={'Запомнить мои данные'} />
-            <Button isLink to="/" onClick={login} isCapitalize className='auth__btn' title={'Войти'} />
+            <a href="/" onClick={login} className='auth__btn button_capitalize button'>Войти</a>
             <div className='auth__links'>
                 <Link className='auth__link' to="/auth/forgot-password">Забыли пароль?</Link> <span>или</span> <p onClick={() => setActive('register')} className='auth__link auth__link_register'>Еще нет аккаунта?</p>
             </div>

@@ -17,11 +17,11 @@ export function Profile({ className }: Props) {
     const classname: string = className ? className : '';
     return (
         <div className={`profile ${classname}`}>
-            <Link onClick={setClosed} to='/user/jsinsia?mode=account' className="profile__link">
+            <Link onClick={setClosed} to='/user?mode=account' className="profile__link">
                 <FontAwesomeIcon icon={faUser} />
                 <span className="profile__text">Аккаунт</span>
             </Link>
-            <Link onClick={setClosed} to="/user/jsinsia?mode=cart" className="profile__cart">
+            <Link onClick={setClosed} to="/user?mode=cart" className="profile__cart">
                 <FontAwesomeIcon icon={faShoppingCart} />
                 <span className="profile__cart-count">{userContext.cartCount || 0}</span>
                 <span className="profile__text">Корзина</span>
