@@ -1,0 +1,51 @@
+.color-picker {
+    &__item {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        border-radius: 6px;
+        border: 1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .color-picker__check-wrapper {
+            display: none;
+        }
+
+        &_checked {
+            .color-picker__check-wrapper {
+                display: flex;
+            }
+        }
+
+        &_disabled {
+            opacity: 0.6;
+            cursor: auto;
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    &__colors {
+        display: flex;
+        gap: 15px;
+    }
+
+    &__check-wrapper {
+        position: absolute;
+        bottom: -8px;
+        right: -8px;
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

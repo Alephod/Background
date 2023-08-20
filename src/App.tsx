@@ -1,32 +1,28 @@
+import { useRef } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { Footer } from './components/footer/Footer';
 import { Header } from './components/header/Header';
+import { ModalShowImage } from './components/modal-show-image/ModalShowImage';
 import { MainPage } from './pages/main-page/MainPage';
+import { ProductPage } from './pages/product-page/ProductPage';
 
 
-export default function App() {
+export default function App({ context }: any) {
+    const body: any = useRef();
     return (
-        <div className="body" style={
-            {
-                background: 'url("./img/bg.png") no-repeat 100%',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-            }
-        }>
+        <div ref={body} className="body">
             <Header />
             <Switch>
                 <Route exact path="/">
-                    <MainPage />
+                    <MainPage body={body} />
                 </Route>
                 <Route path="/man">
                     {/* <Slider className='slider__main-page' sliderAnimTime={800} sliderInterval={10000} images={sliderPagesResponse}/> */}
 
                 </Route>
-                <Route path="/product">
-                    <div className="product">
-                        <h1>Ваш товар</h1>
-                    </div>
+                <Route path="/product/:id">
+                    <ProductPage />
                 </Route>
                 <Route path="/collection/:id">
                     <div className="product">
@@ -41,6 +37,7 @@ export default function App() {
                 <Redirect to="/error" />
             </Switch>
             <Footer />
+            <ModalShowImage image={context.currentImage} isActive={context.isActive} />
         </div >
     );
 }
